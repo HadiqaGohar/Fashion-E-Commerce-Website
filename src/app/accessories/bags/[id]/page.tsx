@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { IoMdStar, IoMdStarOutline } from 'react-icons/io';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 type Product = {
   id: number;
@@ -21,10 +22,7 @@ type Product = {
   images: string[];
 };
 
-type BagsIdProps  = {
-  params: { id: string };
-  
-};
+
 
 const products: Product[] = [
  
@@ -108,20 +106,23 @@ const products: Product[] = [
     },
   ];
 
-  function BagsId({ params }: BagsIdProps) {
-
-    const [selectedImage, setSelectedImage] = useState<string>("");
+  const BagsId = () => {
+    const router = useRouter();
+    const { id } = router.query; // Get the dynamic parameter from the URL
+  
+    const [selectedImage, setSelectedImage] = useState<string>('');
     const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
     const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
-
-    const selectedProduct = products.find((item) => item.id === Number(params.id));
-
+  
+    // Ensure that id is a valid number before accessing the product
+    const selectedProduct = products.find((item) => item.id === Number(id));
+  
     useEffect(() => {
       if (selectedProduct) {
         setSelectedImage(selectedProduct.images[0] || ""); // Ensure a valid default image
       }
     }, [selectedProduct]);
-
+  
     if (!selectedProduct) {
       return (
         <div className="max-w-screen-xl mx-auto p-4">
@@ -130,7 +131,7 @@ const products: Product[] = [
         </div>
       );
     }
-
+  
     const renderStars = (rating: number): JSX.Element[] => {
       return Array.from({ length: 5 }, (_, i) =>
         i < rating ? (
@@ -140,15 +141,14 @@ const products: Product[] = [
         )
       );
     };
-
+  
     const handleImageClick = (imageUrl: string) => {
       setSelectedImage(imageUrl);
     };
-
+  
     return (
       <div className="max-w-screen-2xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-center lg:justify-between m-10 mt-16">
-          {/* Left in big screen, top in small screen */}
           <div className="flex flex-col lg:flex-row justify-center lg:w-1/3 gap-4">
             <div className="relative">
               <Image
@@ -174,8 +174,7 @@ const products: Product[] = [
               ))}
             </div>
           </div>
-
-          {/* Center Column: Product Details */}
+  
           <div className="flex flex-col lg:w-1/4">
             <h1 className="text-3xl font-serif">{selectedProduct.name}</h1>
             <p className="mt-2 text-xl font-serif">{selectedProduct.price}</p>
@@ -207,8 +206,7 @@ const products: Product[] = [
             </div>
             <Review />
           </div>
-
-          {/* Right Column: Product Info */}
+  
           <div className="flex flex-col lg:w-1/4">
             <h3 className="mt-16 text-xl font-semibold text-gray-700 sm:mt-8 md:mt-12 lg:mt-16">
               Description
@@ -245,6 +243,6 @@ const products: Product[] = [
         </div>
       </div>
     );
-  }
-
+  };
+  
   export default BagsId;
