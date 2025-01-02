@@ -5,89 +5,147 @@ import { IoMdStar, IoMdStarOutline } from 'react-icons/io';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import Image from 'next/image';
 
-interface JewelleryIdProps {
-    params: {
-        id: string;
-    };
-}
+
+
+type Product = {
+    id: number;
+    name: string;
+    price: string;
+    shirt: string;
+    fabric: string;
+    color: string;
+    weight: string;
+    rate: number;
+    instruction: string;
+    disclaimer: string;
+    code: string;
+    images: string[];
+  };
+
+  type JewelleryIdProps = {
+    params: { id: string };
+  };
+
+
+
+  const products : Product[] = [
+    {
+        id: 1,
+        name: "Abstract Floral Earrings",
+        price: "$5.00",
+        shirt: "Abstract floral earrings, Push back closure",
+        fabric: "Rexine",
+        color: "White",
+        weight: "544g",
+        rate: 5, // Rating: 5 stars
+
+        instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+        disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+        code: "I8528JK-FRE-BNW",
+        images: [
+            '/accessories/jewellery/p1/1.jpeg',
+            '/accessories/jewellery/p1/2.jpeg',
+        ]
+    },
+    {
+        id: 2,
+        name: "Sturdy Open Bangle",
+        price: "$6.00",
+        shirt: "Red rhinestone open bangle , No closure",
+        fabric: "Rexine",
+        color: "Pink",
+        weight: "354g",
+        rate: 4, // Rating: 4 stars
+
+        instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+        disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+        code: "I8174ST-MED-BGE",
+        images: [
+            '/accessories/jewellery/p2/1.jpeg',
+            '/accessories/jewellery/p2/2.jpeg',
+            '/accessories/jewellery/p2/3.jpeg',
+            '/accessories/jewellery/p2/4.jpeg',
+        ]
+    },
+];
+
+
 
 function JewelleryId({ params }: JewelleryIdProps) {
-    const products = [
-        {
-            id: 1,
-            name: "Abstract Floral Earrings",
-            price: "$5.00",
-            shirt: "Abstract floral earrings, Push back closure",
-            fabric: "Rexine",
-            color: "White",
-            weight: "544g",
-            rate: 5, // Rating: 5 stars
+   
 
-            instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-            disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-            code: "I8528JK-FRE-BNW",
-            images: [
-                '/accessories/jewellery/p1/1.jpeg',
-                '/accessories/jewellery/p1/2.jpeg',
-            ]
-        },
-        {
-            id: 2,
-            name: "Sturdy Open Bangle",
-            price: "$6.00",
-            shirt: "Red rhinestone open bangle , No closure",
-            fabric: "Rexine",
-            color: "Pink",
-            weight: "354g",
-            rate: 4, // Rating: 4 stars
 
-            instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-            disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-            code: "I8174ST-MED-BGE",
-            images: [
-                '/accessories/jewellery/p2/1.jpeg',
-                '/accessories/jewellery/p2/2.jpeg',
-                '/accessories/jewellery/p2/3.jpeg',
-                '/accessories/jewellery/p2/4.jpeg',
-            ]
-        },
-    ];
-
-    const selectedProduct = products.find((item) => item.id === Number(params.id));
-
-    if (!selectedProduct) {
-        return (
-            <div className="max-w-screen-xl mx-auto p-4">
-                <h1 className="text-2xl font-bold mb-4">Item not found</h1>
-                <p>The item you are looking for does not exist.</p>
-            </div>
-        );
-    }
-
-    const [selectedImage, setSelectedImage] = useState<string>(selectedProduct.images[0]);
+    const [selectedImage, setSelectedImage] = useState<string>("");
     const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
     const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
 
-    const renderStars = (rating: number) => {
-        const stars = [];
-        for (let i = 0; i < 5; i++) {
-            if (i < rating) {
-                stars.push(<IoMdStar key={i} className="text-yellow-500" />);
-            } else {
-                stars.push(<IoMdStarOutline key={i} className="text-yellow-500" />);
-            }
-        }
-        return stars;
+    const selectedProduct = products.find((item) => item.id === Number(params.id));
+
+    useEffect(() => {
+      if (selectedProduct) {
+        setSelectedImage(selectedProduct.images[0] || ""); // Ensure a valid default image
+      }
+    }, [selectedProduct]);
+
+    if (!selectedProduct) {
+      return (
+        <div className="max-w-screen-xl mx-auto p-4">
+          <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+          <p>The item you are looking for does not exist.</p>
+        </div>
+      );
+    }
+
+    const renderStars = (rating: number): JSX.Element[] => {
+      return Array.from({ length: 5 }, (_, i) =>
+        i < rating ? (
+          <IoMdStar key={i} className="text-yellow-500" />
+        ) : (
+          <IoMdStarOutline key={i} className="text-yellow-500" />
+        )
+      );
     };
 
     const handleImageClick = (imageUrl: string) => {
-        console.log("Clicked Image:", imageUrl); // Debugging step
-        setSelectedImage(imageUrl);
+      setSelectedImage(imageUrl);
     };
 
-    useEffect(() => {
-        console.log("Selected Image Updated:", selectedImage); // Debugging step
-    }, [selectedImage]);
+
+    // const selectedProduct = products.find((item) => item.id === Number(params.id));
+
+    // if (!selectedProduct) {
+    //     return (
+    //         <div className="max-w-screen-xl mx-auto p-4">
+    //             <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+    //             <p>The item you are looking for does not exist.</p>
+    //         </div>
+    //     );
+    // }
+
+    // const [selectedImage, setSelectedImage] = useState<string>(selectedProduct.images[0]);
+    // const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
+    // const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
+
+    // const renderStars = (rating: number) => {
+    //     const stars = [];
+    //     for (let i = 0; i < 5; i++) {
+    //         if (i < rating) {
+    //             stars.push(<IoMdStar key={i} className="text-yellow-500" />);
+    //         } else {
+    //             stars.push(<IoMdStarOutline key={i} className="text-yellow-500" />);
+    //         }
+    //     }
+    //     return stars;
+    // };
+
+    // const handleImageClick = (imageUrl: string) => {
+    //     console.log("Clicked Image:", imageUrl); // Debugging step
+    //     setSelectedImage(imageUrl);
+    // };
+
+    // useEffect(() => {
+    //     console.log("Selected Image Updated:", selectedImage); // Debugging step
+    // }, [selectedImage]);
 
     return (
         <div className=' max-w-screen-2xl mx-auto'>

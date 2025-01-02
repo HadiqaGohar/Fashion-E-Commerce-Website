@@ -5,7 +5,7 @@ import { IoMdStar, IoMdStarOutline } from 'react-icons/io';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import Image from 'next/image';
 
-interface Product {
+type Product = {
   id: number;
   name: string;
   price: string;
@@ -18,114 +18,114 @@ interface Product {
   disclaimer: string;
   code: string;
   images: string[];
-}
+};
+type WomanBottomIdProps = {
+  params: { id: string };
+};
 
-interface WomanBottomIdProps {
-  params: {
-    id: string;
-  };
-}
+
+
+
+
+const products: Product[] = [
+  {
+    id: 1,
+    name: "Dyed Grip Pants",
+    price: "$5.00",
+    shirt: "Zip and hooked closure on the front, Wide leg, Belt loops for using belts",
+    fabric: "Grip",
+    color: "Maroon",
+    weight: "294g",
+    rate: 5,
+    instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+    disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+    code: "I8528JK-FRE-BNW",
+    images: [
+      '/woman/bottom/p1/img1.jpeg',
+      '/woman/bottom/p1/img2.jpeg',
+      '/woman/bottom/p1/img3.jpeg',
+      '/woman/bottom/p1/img4.jpeg',
+    ]
+  },
+  {
+    id: 2,
+    name: "Leather Pants",
+    price: "$6.00",
+    shirt: "Button and zip closure on the front, Two side fake pockets, Two back pockets, Zip closure on the hem for easy wear, Narrow leg, Durable material",
+    fabric: "Faux leather",
+    color: "Black",
+    weight: "455g",
+    rate: 4,
+    instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+    disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+    code: "W1351PT-SML-001",
+    images: [
+      '/woman/bottom/p2/img1.jpeg',
+      '/woman/bottom/p2/img2.jpeg',
+      '/woman/bottom/p2/img3.jpeg',
+      '/woman/bottom/p2/img4.jpeg',
+      '/woman/bottom/p2/img5.jpeg',
+      '/woman/bottom/p2/img6.jpeg',
+    ]
+  },
+  {
+    id: 3,
+    name: "Basic Skinny Jeans",
+    price: "$6.00",
+    shirt: "Dyed narrow-leg high-rise waist jeans, Two front pockets with mini coin pocket, Two back pockets, Belt loops, Front zip and button closure",
+    fabric: "SDenim",
+    color: "Blue",
+    weight: "400g",
+    rate: 4,
+    instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+    disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+    code: "W1664JN-026-BLU",
+    images: [
+      '/woman/bottom/p3/img1.jpeg',
+      '/woman/bottom/p3/img2.jpeg',
+      '/woman/bottom/p3/img3.jpeg',
+      '/woman/bottom/p3/img4.jpeg',
+      '/woman/bottom/p3/img5.jpeg',
+    ]
+  },
+  {
+    id: 4,
+    name: "Snake Print Jersey Pants",
+    price: "$6.00",
+    shirt: "Snake printed narrow leg pants, Elasticized waistband",
+    fabric: "Jersey",
+    color: "Snack Brown & Black",
+    weight: "344g",
+    rate: 4,
+    instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+    disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+    code: "V0282TR-EXS-BGE",
+    images: [
+      '/woman/bottom/p4/img1.jpeg',
+      '/woman/bottom/p4/img2.jpeg',
+      '/woman/bottom/p4/img3.jpeg',
+      '/woman/bottom/p4/img4.jpeg',
+    ]
+  },
+];
+
+
+
+
 
 function WomanBottomId({ params }: WomanBottomIdProps) {
-  const products: Product[] = [
-    {
-      id: 1,
-      name: "Dyed Grip Pants",
-      price: "$5.00",
-      shirt: "Zip and hooked closure on the front, Wide leg, Belt loops for using belts",
-      fabric: "Grip",
-      color: "Maroon",
-      weight: "294g",
-      rate: 5,
-      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-      code: "I8528JK-FRE-BNW",
-      images: [
-        '/woman/bottom/p1/img1.jpeg',
-        '/woman/bottom/p1/img2.jpeg',
-        '/woman/bottom/p1/img3.jpeg',
-        '/woman/bottom/p1/img4.jpeg',
-      ]
-    },
-    {
-      id: 2,
-      name: "Leather Pants",
-      price: "$6.00",
-      shirt: "Button and zip closure on the front, Two side fake pockets, Two back pockets, Zip closure on the hem for easy wear, Narrow leg, Durable material",
-      fabric: "Faux leather",
-      color: "Black",
-      weight: "455g",
-      rate: 4,
-      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-      code: "W1351PT-SML-001",
-      images: [
-        '/woman/bottom/p2/img1.jpeg',
-        '/woman/bottom/p2/img2.jpeg',
-        '/woman/bottom/p2/img3.jpeg',
-        '/woman/bottom/p2/img4.jpeg',
-        '/woman/bottom/p2/img5.jpeg',
-        '/woman/bottom/p2/img6.jpeg',
-      ]
-    },
-    {
-      id: 3,
-      name: "Basic Skinny Jeans",
-      price: "$6.00",
-      shirt: "Dyed narrow-leg high-rise waist jeans, Two front pockets with mini coin pocket, Two back pockets, Belt loops, Front zip and button closure",
-      fabric: "SDenim",
-      color: "Blue",
-      weight: "400g",
-      rate: 4,
-      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-      code: "W1664JN-026-BLU",
-      images: [
-        '/woman/bottom/p3/img1.jpeg',
-        '/woman/bottom/p3/img2.jpeg',
-        '/woman/bottom/p3/img3.jpeg',
-        '/woman/bottom/p3/img4.jpeg',
-        '/woman/bottom/p3/img5.jpeg',
-      ]
-    },
-    {
-      id: 4,
-      name: "Snake Print Jersey Pants",
-      price: "$6.00",
-      shirt: "Snake printed narrow leg pants, Elasticized waistband",
-      fabric: "Jersey",
-      color: "Snack Brown & Black",
-      weight: "344g",
-      rate: 4,
-      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-      code: "V0282TR-EXS-BGE",
-      images: [
-        '/woman/bottom/p4/img1.jpeg',
-        '/woman/bottom/p4/img2.jpeg',
-        '/woman/bottom/p4/img3.jpeg',
-        '/woman/bottom/p4/img4.jpeg',
-      ]
-    },
-  ];
 
+  const [selectedImage, setSelectedImage] = useState<string>("");
   const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
   const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<string>(products[0].images[0]);
-
-  const renderStars = (rating: number) => {
-    const stars: JSX.Element[] = [];
-    for (let i = 0; i < 5; i++) {
-      if (i < rating) {
-        stars.push(<IoMdStar key={i} className="text-yellow-500" />);
-      } else {
-        stars.push(<IoMdStarOutline key={i} className="text-yellow-500" />);
-      }
-    }
-    return stars;
-  };
 
   const selectedProduct = products.find((item) => item.id === Number(params.id));
+
+  useEffect(() => {
+    if (selectedProduct) {
+      setSelectedImage(selectedProduct.images[0] || ""); // Ensure a valid default image
+    }
+  }, [selectedProduct]);
 
   if (!selectedProduct) {
     return (
@@ -136,14 +136,56 @@ function WomanBottomId({ params }: WomanBottomIdProps) {
     );
   }
 
+  const renderStars = (rating: number): JSX.Element[] => {
+    return Array.from({ length: 5 }, (_, i) =>
+      i < rating ? (
+        <IoMdStar key={i} className="text-yellow-500" />
+      ) : (
+        <IoMdStarOutline key={i} className="text-yellow-500" />
+      )
+    );
+  };
+
   const handleImageClick = (imageUrl: string) => {
-    console.log("Clicked Image:", imageUrl);
     setSelectedImage(imageUrl);
   };
 
-  useEffect(() => {
-    console.log("Selected Image Updated:", selectedImage);
-  }, [selectedImage]);
+
+  // const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
+  // const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
+  // const [selectedImage, setSelectedImage] = useState<string>(products[0].images[0]);
+
+  // const renderStars = (rating: number) => {
+  //   const stars: JSX.Element[] = [];
+  //   for (let i = 0; i < 5; i++) {
+  //     if (i < rating) {
+  //       stars.push(<IoMdStar key={i} className="text-yellow-500" />);
+  //     } else {
+  //       stars.push(<IoMdStarOutline key={i} className="text-yellow-500" />);
+  //     }
+  //   }
+  //   return stars;
+  // };
+
+  // const selectedProduct = products.find((item) => item.id === Number(params.id));
+
+  // if (!selectedProduct) {
+  //   return (
+  //     <div className="max-w-screen-xl mx-auto p-4">
+  //       <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+  //       <p>The item you are looking for does not exist.</p>
+  //     </div>
+  //   );
+  // }
+
+  // const handleImageClick = (imageUrl: string) => {
+  //   console.log("Clicked Image:", imageUrl);
+  //   setSelectedImage(imageUrl);
+  // };
+
+  // useEffect(() => {
+  //   console.log("Selected Image Updated:", selectedImage);
+  // }, [selectedImage]);
 
   return (
     <div className="max-w-screen-2xl mx-auto">

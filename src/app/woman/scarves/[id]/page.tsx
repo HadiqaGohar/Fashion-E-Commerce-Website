@@ -6,116 +6,177 @@ import Image from 'next/image';
 import { IoMdStar, IoMdStarOutline } from 'react-icons/io';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
-function WomanScarvesId({ params }: { params: { id: string } }) {
-    const products = [
-        {
-            id: 1,
-            name: "Printed Satin Scarf",
-            price: "$5.00",
-            shirt: "Printed scarf",
-            fabric: "Satin",
-            color: "Multi Color",
-            weight: "182g",
-            rate: 5,
-            instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-            disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-            code: "I6847SC-FRE-PT1",
-            images: [
-                '/woman/scarves/p1/img1.jpeg',
-                '/woman/scarves/p1/img2.jpeg',
-                '/woman/scarves/p1/img3.jpeg',
-                '/woman/scarves/p1/img4.jpeg',]
-        },
-        {
-            id: 2,
-            name: "Printed Viscose Scarf",
-            price: "$6.00",
-            shirt: "Printed scarf ",
-            fabric: "Satin",
-            color: "Multi Color",
-            weight: "182g",
-            rate: 4,
-            instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-            disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-            code: "I6845SC-FRE-P64",
-            images: [
-                '/woman/scarves/p2/img1.jpeg',
-                '/woman/scarves/p2/img2.jpeg',
-                '/woman/scarves/p2/img3.jpeg',
-                '/woman/scarves/p2/img4.jpeg',]
-        },
-        {
-            id: 3,
-            name: "Printed Wool Scarf",
-            price: "$6.00",
-            shirt: "Printed Scarf",
-            fabric: "Satin",
-            color: "Multi Color",
-            weight: "182g",
-            rate: 4,
-            instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-            disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-            code: "I6845SC-FRE-219",
-            images: [
-                '/woman/scarves/p3/img1.jpeg',
-                '/woman/scarves/p3/img2.jpeg',
-                '/woman/scarves/p3/img3.jpeg',
-                '/woman/scarves/p3/img4.jpeg',]
-        },
-        {
-            id: 4,
-            name: "Floral Printed Viscose Scarf",
-            price: "$6.00",
-            shirt: "Floral printed scarf",
-            fabric: "Viscose",
-            color: "Multi Color",
-            weight: "182g",
-            rate: 4,
-            instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-            disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-            code: "U3695SH-SSH-034",
-            images: [
-                '/woman/scarves/p4/img1.jpeg',
-                '/woman/scarves/p4/img2.jpeg',
-                '/woman/scarves/p4/img3.jpeg',
-                '/woman/scarves/p4/img4.jpeg',]
-        }
-    ];
 
-    const selectedProduct = products.find((item) => item.id === Number(params.id));
 
-    if (!selectedProduct) {
-        return (
-            <div className="max-w-screen-xl mx-auto p-4">
-                <h1 className="text-2xl font-bold mb-4">Item not found</h1>
-                <p>The item you are looking for does not exist.</p>
-            </div>
-        );
-    }
 
-    const [selectedImage, setSelectedImage] = useState<string>(selectedProduct.images[0]);
+
+type Product = {
+  id: number;
+  name: string;
+  price: string;
+  shirt: string;
+  fabric: string;
+  color: string;
+  weight: string;
+  rate: number;
+  instruction: string;
+  disclaimer: string;
+  code: string;
+  images: string[];
+};
+type WomanScarvesIdProps = {
+  params: { id: string };
+};
+
+
+const products : Product[] = [
+  {
+      id: 1,
+      name: "Printed Satin Scarf",
+      price: "$5.00",
+      shirt: "Printed scarf",
+      fabric: "Satin",
+      color: "Multi Color",
+      weight: "182g",
+      rate: 5,
+      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+      code: "I6847SC-FRE-PT1",
+      images: [
+          '/woman/scarves/p1/img1.jpeg',
+          '/woman/scarves/p1/img2.jpeg',
+          '/woman/scarves/p1/img3.jpeg',
+          '/woman/scarves/p1/img4.jpeg',]
+  },
+  {
+      id: 2,
+      name: "Printed Viscose Scarf",
+      price: "$6.00",
+      shirt: "Printed scarf ",
+      fabric: "Satin",
+      color: "Multi Color",
+      weight: "182g",
+      rate: 4,
+      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+      code: "I6845SC-FRE-P64",
+      images: [
+          '/woman/scarves/p2/img1.jpeg',
+          '/woman/scarves/p2/img2.jpeg',
+          '/woman/scarves/p2/img3.jpeg',
+          '/woman/scarves/p2/img4.jpeg',]
+  },
+  {
+      id: 3,
+      name: "Printed Wool Scarf",
+      price: "$6.00",
+      shirt: "Printed Scarf",
+      fabric: "Satin",
+      color: "Multi Color",
+      weight: "182g",
+      rate: 4,
+      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+      code: "I6845SC-FRE-219",
+      images: [
+          '/woman/scarves/p3/img1.jpeg',
+          '/woman/scarves/p3/img2.jpeg',
+          '/woman/scarves/p3/img3.jpeg',
+          '/woman/scarves/p3/img4.jpeg',]
+  },
+  {
+      id: 4,
+      name: "Floral Printed Viscose Scarf",
+      price: "$6.00",
+      shirt: "Floral printed scarf",
+      fabric: "Viscose",
+      color: "Multi Color",
+      weight: "182g",
+      rate: 4,
+      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+      code: "U3695SH-SSH-034",
+      images: [
+          '/woman/scarves/p4/img1.jpeg',
+          '/woman/scarves/p4/img2.jpeg',
+          '/woman/scarves/p4/img3.jpeg',
+          '/woman/scarves/p4/img4.jpeg',]
+  }
+];
+
+
+function WomanScarvesId({ params }: WomanScarvesIdProps) {
+   
+  const [selectedImage, setSelectedImage] = useState<string>("");
     const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
     const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
 
-    const renderStars = (rating: number) => {
-        const stars = [];
-        for (let i = 0; i < 5; i++) {
-            if (i < rating) {
-                stars.push(<IoMdStar key={i} className="text-yellow-500" />);
-            } else {
-                stars.push(<IoMdStarOutline key={i} className="text-yellow-500" />);
-            }
-        }
-        return stars;
+    const selectedProduct = products.find((item) => item.id === Number(params.id));
+
+    useEffect(() => {
+      if (selectedProduct) {
+        setSelectedImage(selectedProduct.images[0] || ""); // Ensure a valid default image
+      }
+    }, [selectedProduct]);
+
+    if (!selectedProduct) {
+      return (
+        <div className="max-w-screen-xl mx-auto p-4">
+          <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+          <p>The item you are looking for does not exist.</p>
+        </div>
+      );
+    }
+
+    const renderStars = (rating: number): JSX.Element[] => {
+      return Array.from({ length: 5 }, (_, i) =>
+        i < rating ? (
+          <IoMdStar key={i} className="text-yellow-500" />
+        ) : (
+          <IoMdStarOutline key={i} className="text-yellow-500" />
+        )
+      );
     };
 
     const handleImageClick = (imageUrl: string) => {
-        setSelectedImage(imageUrl);
+      setSelectedImage(imageUrl);
     };
 
-    useEffect(() => {
-        console.log("Selected Image Updated:", selectedImage);
-    }, [selectedImage]);
+
+    // const selectedProduct = products.find((item) => item.id === Number(params.id));
+
+    // if (!selectedProduct) {
+    //     return (
+    //         <div className="max-w-screen-xl mx-auto p-4">
+    //             <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+    //             <p>The item you are looking for does not exist.</p>
+    //         </div>
+    //     );
+    // }
+
+    // const [selectedImage, setSelectedImage] = useState<string>(selectedProduct.images[0]);
+    // const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
+    // const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
+
+    // const renderStars = (rating: number) => {
+    //     const stars = [];
+    //     for (let i = 0; i < 5; i++) {
+    //         if (i < rating) {
+    //             stars.push(<IoMdStar key={i} className="text-yellow-500" />);
+    //         } else {
+    //             stars.push(<IoMdStarOutline key={i} className="text-yellow-500" />);
+    //         }
+    //     }
+    //     return stars;
+    // };
+
+    // const handleImageClick = (imageUrl: string) => {
+    //     setSelectedImage(imageUrl);
+    // };
+
+    // useEffect(() => {
+    //     console.log("Selected Image Updated:", selectedImage);
+    // }, [selectedImage]);
 
 
     return (
@@ -165,8 +226,10 @@ function WomanScarvesId({ params }: { params: { id: string } }) {
               {renderStars(selectedProduct.rate)}
             </div>
             {/* Add more product details or functionality here */}
-            <button className='bg-black text-white h-12 w-[80%] rounded-xl my-8 shadow-lg' onClick={() => addToCart(product)}>Add to Cart</button>
-  
+            {/* <button className='bg-black text-white h-12 w-[80%] rounded-xl my-8 shadow-lg' onClick={() => addToCart(product)}>Add to Cart</button> */}
+            <button className="bg-black text-white h-12 w-[80%] rounded-xl my-8 shadow-lg">
+              Add to Cart
+            </button>
             {/* Care Instructions Dropdown */}
             <div >
               <p

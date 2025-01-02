@@ -7,138 +7,154 @@ import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 // import NavIcon from '@/app/components/NavIcon';
 import Image from 'next/image';
 
-function WomanShirtId({ params }: any) {  // Accept params as a prop
-  const products = [
-    {
-      id: 1,
-      name: "Sequin Jacket",
-      price: "$5.00",
-      shirt: "Jacket",
-      fabric: "Woolen Blend",
-      color: "Brown",
-      weight: "544g",
-      rate: 5, // Rating: 5 stars
 
-      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-      code: "I8528JK-FRE-BNW",
-      images: [
-        '/woman/shirts/p1/img1.jpeg',
-        '/woman/shirts/p1/img2.jpeg',
-        '/woman/shirts/p1/img3.jpeg',
-        '/woman/shirts/p1/img4.jpeg',
-        '/woman/shirts/p1/img5.jpeg',
-        '/woman/shirts/p1/img6.jpeg',
-        '/woman/shirts/p1/img7.jpeg',
-        '/woman/shirts/p1/img8.jpeg',
-        '/woman/shirts/p1/img9.jpeg',
-      ]
-    },
-    {
-      id: 2,
-      name: "Embellished Sweater",
-      price: "$6.00",
-      shirt: "Rhinestone embellished sweater ",
-      fabric: "Wool",
-      color: "IBeige",
-      weight: "354g",
-      rate: 4, // Rating: 4 stars
+type Product = {
+  id: number;
+  name: string;
+  price: string;
+  shirt: string;
+  fabric: string;
+  color: string;
+  weight: string;
+  rate: number;
+  instruction: string;
+  disclaimer: string;
+  code: string;
+  images: string[];
+};
 
-      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+type WomanShirtIdProps = {
+  params: { id: string };
+};
 
 
-      code: "I8174ST-MED-BGE",
-      images: [
-        '/woman/shirts/p2/img1.jpeg',
-        '/woman/shirts/p2/img2.jpeg',
-        '/woman/shirts/p2/img3.jpeg',
-        '/woman/shirts/p2/img4.jpeg',
-        '/woman/shirts/p2/img5.jpeg',
-        '/woman/shirts/p2/img6.jpeg',
-        '/woman/shirts/p2/img7.jpeg',
-        '/woman/shirts/p2/img8.jpeg',
-      ]
-    },
-    {
-      id: 3,
-      name: "Dyed Silk Top",
-      price: "$6.00",
-      shirt: "Dyed button down top",
-      fabric: "Silk",
-      color: "Red",
-      weight: "400g",
+const products : Product[] = [
+  {
+    id: 1,
+    name: "Sequin Jacket",
+    price: "$5.00",
+    shirt: "Jacket",
+    fabric: "Woolen Blend",
+    color: "Brown",
+    weight: "544g",
+    rate: 5, // Rating: 5 stars
 
-      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+    instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+    disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+    code: "I8528JK-FRE-BNW",
+    images: [
+      '/woman/shirts/p1/img1.jpeg',
+      '/woman/shirts/p1/img2.jpeg',
+      '/woman/shirts/p1/img3.jpeg',
+      '/woman/shirts/p1/img4.jpeg',
+      '/woman/shirts/p1/img5.jpeg',
+      '/woman/shirts/p1/img6.jpeg',
+      '/woman/shirts/p1/img7.jpeg',
+      '/woman/shirts/p1/img8.jpeg',
+      '/woman/shirts/p1/img9.jpeg',
+    ]
+  },
+  {
+    id: 2,
+    name: "Embellished Sweater",
+    price: "$6.00",
+    shirt: "Rhinestone embellished sweater ",
+    fabric: "Wool",
+    color: "IBeige",
+    weight: "354g",
+    rate: 4, // Rating: 4 stars
 
-      rate: 4, // Rating: 4 stars
-
-      code: "W1748TP-XSL-565",
-      images: [
-        '/woman/shirts/p3/img1.jpeg',
-        '/woman/shirts/p3/img2.jpeg',
-        '/woman/shirts/p3/img3.jpeg',
-        '/woman/shirts/p3/img4.jpeg',
-        '/woman/shirts/p3/img5.jpeg',
-        '/woman/shirts/p3/img6.jpeg',
-        // '/woman/shirts/p3/img7.jpeg',
-        // '/woman/shirts/p3/img8.jpeg',
-
-      ]
-    },
-    {
-      id: 4,
-      name: "Dyed Grip Co-Ord Set",
-      price: "$6.00",
-      shirt: "Gold paste print shirt 1.83 M,",
-      fabric: "Khaddar",
-      color: "Black",
-      weight: "400g",
-
-      instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
-      disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
-
-      rate: 4, // Rating: 4 stars
-
-      code: "U3695SH-SSH-034",
-      images: [
-        '/woman/shirts/p4/img1.jpeg',
-        '/woman/shirts/p4/img2.jpeg',
-        '/woman/shirts/p4/img3.jpeg',
-        '/woman/shirts/p4/img4.jpeg',
-        '/woman/shirts/p4/img5.jpeg',
-        '/woman/shirts/p4/img6.jpeg',
-
-      ]
-    },
-    // Add more products here if needed
-  ];
+    instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+    disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
 
 
+    code: "I8174ST-MED-BGE",
+    images: [
+      '/woman/shirts/p2/img1.jpeg',
+      '/woman/shirts/p2/img2.jpeg',
+      '/woman/shirts/p2/img3.jpeg',
+      '/woman/shirts/p2/img4.jpeg',
+      '/woman/shirts/p2/img5.jpeg',
+      '/woman/shirts/p2/img6.jpeg',
+      '/woman/shirts/p2/img7.jpeg',
+      '/woman/shirts/p2/img8.jpeg',
+    ]
+  },
+  {
+    id: 3,
+    name: "Dyed Silk Top",
+    price: "$6.00",
+    shirt: "Dyed button down top",
+    fabric: "Silk",
+    color: "Red",
+    weight: "400g",
+
+    instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+    disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+
+    rate: 4, // Rating: 4 stars
+
+    code: "W1748TP-XSL-565",
+    images: [
+      '/woman/shirts/p3/img1.jpeg',
+      '/woman/shirts/p3/img2.jpeg',
+      '/woman/shirts/p3/img3.jpeg',
+      '/woman/shirts/p3/img4.jpeg',
+      '/woman/shirts/p3/img5.jpeg',
+      '/woman/shirts/p3/img6.jpeg',
+      // '/woman/shirts/p3/img7.jpeg',
+      // '/woman/shirts/p3/img8.jpeg',
+
+    ]
+  },
+  {
+    id: 4,
+    name: "Dyed Grip Co-Ord Set",
+    price: "$6.00",
+    shirt: "Gold paste print shirt 1.83 M,",
+    fabric: "Khaddar",
+    color: "Black",
+    weight: "400g",
+
+    instruction: "Wash light and bright colors separately. Do not bleach. Do not twist/wring, warm iron to sequined, beaded, and delicate fabrics. Do not dry in direct sunlight.",
+    disclaimer: "Actual colors of the product may vary from the colors being displayed on your device.",
+
+    rate: 4, // Rating: 4 stars
+
+    code: "U3695SH-SSH-034",
+    images: [
+      '/woman/shirts/p4/img1.jpeg',
+      '/woman/shirts/p4/img2.jpeg',
+      '/woman/shirts/p4/img3.jpeg',
+      '/woman/shirts/p4/img4.jpeg',
+      '/woman/shirts/p4/img5.jpeg',
+      '/woman/shirts/p4/img6.jpeg',
+
+    ]
+  },
+  // Add more products here if needed
+];
 
 
+
+
+
+
+
+function WomanShirtId({ params }: WomanShirtIdProps) {  // Accept params as a prop
+
+
+  const [selectedImage, setSelectedImage] = useState<string>("");
   const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
   const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
 
-
-  // Function to render stars
-  const renderStars = (rating: number) => {
-    let stars = [];
-    for (let i = 0; i < 5; i++) {
-      if (i < rating) {
-        stars.push(<IoMdStar key={i} className="text-yellow-500" />); // Filled star
-      } else {
-        stars.push(<IoMdStarOutline key={i} className="text-yellow-500" />); // Empty star
-      }
-    }
-    return stars;
-  };
-
-
-
-
   const selectedProduct = products.find((item) => item.id === Number(params.id));
+
+  useEffect(() => {
+    if (selectedProduct) {
+      setSelectedImage(selectedProduct.images[0] || ""); // Ensure a valid default image
+    }
+  }, [selectedProduct]);
 
   if (!selectedProduct) {
     return (
@@ -149,16 +165,62 @@ function WomanShirtId({ params }: any) {  // Accept params as a prop
     );
   }
 
-  const [selectedImage, setSelectedImage] = useState<string>(selectedProduct.images[0]);
+  const renderStars = (rating: number): JSX.Element[] => {
+    return Array.from({ length: 5 }, (_, i) =>
+      i < rating ? (
+        <IoMdStar key={i} className="text-yellow-500" />
+      ) : (
+        <IoMdStarOutline key={i} className="text-yellow-500" />
+      )
+    );
+  };
 
   const handleImageClick = (imageUrl: string) => {
-    console.log("Clicked Image:", imageUrl); // Debugging step
     setSelectedImage(imageUrl);
   };
 
-  useEffect(() => {
-    console.log("Selected Image Updated:", selectedImage); // Debugging step
-  }, [selectedImage]);
+
+  // const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
+  // const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
+
+
+  // // Function to render stars
+  // const renderStars = (rating: number) => {
+  //   let stars = [];
+  //   for (let i = 0; i < 5; i++) {
+  //     if (i < rating) {
+  //       stars.push(<IoMdStar key={i} className="text-yellow-500" />); // Filled star
+  //     } else {
+  //       stars.push(<IoMdStarOutline key={i} className="text-yellow-500" />); // Empty star
+  //     }
+  //   }
+  //   return stars;
+  // };
+
+
+
+
+  // const selectedProduct = products.find((item) => item.id === Number(params.id));
+
+  // if (!selectedProduct) {
+  //   return (
+  //     <div className="max-w-screen-xl mx-auto p-4">
+  //       <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+  //       <p>The item you are looking for does not exist.</p>
+  //     </div>
+  //   );
+  // }
+
+  // const [selectedImage, setSelectedImage] = useState<string>(selectedProduct.images[0]);
+
+  // const handleImageClick = (imageUrl: string) => {
+  //   console.log("Clicked Image:", imageUrl); // Debugging step
+  //   setSelectedImage(imageUrl);
+  // };
+
+  // useEffect(() => {
+  //   console.log("Selected Image Updated:", selectedImage); // Debugging step
+  // }, [selectedImage]);
 
 
 
@@ -210,8 +272,10 @@ function WomanShirtId({ params }: any) {  // Accept params as a prop
             {renderStars(selectedProduct.rate)}
           </div>
           {/* Add more product details or functionality here */}
-          <button className='bg-black text-white h-12 w-[80%] rounded-xl my-8 shadow-lg' onClick={() => addToCart(product)}>Add to Cart</button>
-
+          {/* <button className='bg-black text-white h-12 w-[80%] rounded-xl my-8 shadow-lg' onClick={() => addToCart(product)}>Add to Cart</button> */}
+          <button className="bg-black text-white h-12 w-[80%] rounded-xl my-8 shadow-lg">
+              Add to Cart
+            </button>
           {/* Care Instructions Dropdown */}
           <div >
             <p
