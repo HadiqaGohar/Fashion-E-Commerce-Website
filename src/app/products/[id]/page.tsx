@@ -5,6 +5,7 @@ import { IoMdStar, IoMdStarOutline } from 'react-icons/io';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 
 
 type Product = {
@@ -20,14 +21,14 @@ type Product = {
     disclaimer: string;
     code: string;
     images: string[];
-  };
-  type ProductIdProps = {
-    params: { id: string };
-  };
+};
+//   type ProductIdProps = {
+//     params: { id: string };
+//   };
 
 
 
-const products : Product[] = [
+const products: Product[] = [
     {
         id: 1,
         name: "Sequin Jacket",
@@ -43,15 +44,15 @@ const products : Product[] = [
         code: "I8528JK-FRE-BNW",
         images: [
             '/woman/shirts/p1/img1.jpeg',
-          '/woman/shirts/p1/img2.jpeg',
-          '/woman/shirts/p1/img3.jpeg',
-          '/woman/shirts/p1/img4.jpeg',
-          '/woman/shirts/p1/img5.jpeg',
-          '/woman/shirts/p1/img6.jpeg',
-          '/woman/shirts/p1/img7.jpeg',
-          '/woman/shirts/p1/img8.jpeg',
-          '/woman/shirts/p1/img9.jpeg',
-         ]
+            '/woman/shirts/p1/img2.jpeg',
+            '/woman/shirts/p1/img3.jpeg',
+            '/woman/shirts/p1/img4.jpeg',
+            '/woman/shirts/p1/img5.jpeg',
+            '/woman/shirts/p1/img6.jpeg',
+            '/woman/shirts/p1/img7.jpeg',
+            '/woman/shirts/p1/img8.jpeg',
+            '/woman/shirts/p1/img9.jpeg',
+        ]
     },
     {
         id: 2,
@@ -77,7 +78,7 @@ const products : Product[] = [
             '/woman/shirts/p2/img6.jpeg',
             '/woman/shirts/p2/img7.jpeg',
             '/woman/shirts/p2/img8.jpeg',
-            ]
+        ]
     },
     {
         id: 3,
@@ -103,7 +104,7 @@ const products : Product[] = [
             '/woman/shirts/p3/img6.jpeg',
             '/woman/shirts/p3/img7.jpeg',
             '/woman/shirts/p3/img8.jpeg',
-        
+
         ]
     },
     {
@@ -129,7 +130,7 @@ const products : Product[] = [
             '/woman/shirts/p4/img4.jpeg',
             '/woman/shirts/p4/img5.jpeg',
             '/woman/shirts/p4/img6.jpeg',
-         
+
         ]
     },
     // Add more products here if needed
@@ -173,7 +174,7 @@ const products : Product[] = [
             '/woman/scarves/p2/img2.jpeg',
             '/woman/scarves/p2/img3.jpeg',
             '/woman/scarves/p2/img4.jpeg',
-      ]
+        ]
     },
     {
         id: 7,
@@ -194,7 +195,7 @@ const products : Product[] = [
             '/woman/scarves/p3/img1.jpeg',
             '/woman/scarves/p3/img2.jpeg',
             '/woman/scarves/p3/img3.jpeg',
-            '/woman/scarves/p3/img4.jpeg', 
+            '/woman/scarves/p3/img4.jpeg',
 
         ]
     },
@@ -219,7 +220,7 @@ const products : Product[] = [
             '/woman/scarves/p4/img2.jpeg',
             '/woman/scarves/p4/img3.jpeg',
             '/woman/scarves/p4/img4.jpeg',
-        
+
         ]
     },
     // Add more products here if needed
@@ -245,7 +246,7 @@ const products : Product[] = [
             '/woman/sale/winter/p1/img6.jpeg',
             '/woman/sale/winter/p1/img7.jpeg',
             '/woman/sale/winter/p1/img8.jpeg',
-            ]
+        ]
     },
     {
         id: 10,
@@ -271,7 +272,7 @@ const products : Product[] = [
             '/woman/sale/winter/p2/img6.jpeg',
             '/woman/sale/winter/p2/img7.jpeg',
             '/woman/sale/winter/p2/img8.jpeg',
-       ]
+        ]
     },
     {
         id: 11,
@@ -296,7 +297,7 @@ const products : Product[] = [
             '/woman/sale/winter/p3/img5.jpeg',
             '/woman/sale/winter/p3/img6.jpeg',
             '/woman/sale/winter/p3/img7.jpeg',
-           
+
         ]
     },
     {
@@ -316,14 +317,14 @@ const products : Product[] = [
         code: "U3695SH-SSH-034",
         images: [
 
-       
+
             '/woman/sale/winter/p4/img1.jpeg',
             '/woman/sale/winter/p4/img2.jpeg',
             '/woman/sale/winter/p4/img3.jpeg',
             '/woman/sale/winter/p4/img4.jpeg',
             '/woman/sale/winter/p4/img5.jpeg',
             '/woman/sale/winter/p4/img6.jpeg',
-            '/woman/sale/winter/p4/img7.jpeg', 
+            '/woman/sale/winter/p4/img7.jpeg',
         ]
     },
     {
@@ -341,12 +342,12 @@ const products : Product[] = [
         code: "I8528JK-FRE-BNW",
         images: [
             '/woman/sale/summer/p1/img1.jpeg',
-        '/woman/sale/summer/p1/img2.jpeg',
-        '/woman/sale/summer/p1/img3.jpeg',
-        '/woman/sale/summer/p1/img4.jpeg',
-        '/woman/sale/summer/p1/img5.jpeg',
-        '/woman/sale/summer/p1/img6.jpeg',
-     ]
+            '/woman/sale/summer/p1/img2.jpeg',
+            '/woman/sale/summer/p1/img3.jpeg',
+            '/woman/sale/summer/p1/img4.jpeg',
+            '/woman/sale/summer/p1/img5.jpeg',
+            '/woman/sale/summer/p1/img6.jpeg',
+        ]
     },
     {
         id: 14,
@@ -364,7 +365,7 @@ const products : Product[] = [
 
         code: "I8174ST-MED-BGE",
         images: [
-       
+
             '/woman/sale/summer/p2/img1.jpeg',
             '/woman/sale/summer/p2/img2.jpeg',
             '/woman/sale/summer/p2/img3.jpeg',
@@ -388,7 +389,7 @@ const products : Product[] = [
 
         code: "W1748TP-XSL-565",
         images: [
-          
+
             '/woman/sale/summer/p3/img1.jpeg',
             '/woman/sale/summer/p3/img2.jpeg',
             '/woman/sale/summer/p3/img3.jpeg',
@@ -418,9 +419,9 @@ const products : Product[] = [
             '/woman/sale/summer/p4/img3.jpeg',
             '/woman/sale/summer/p4/img4.jpeg',
             '/woman/sale/summer/p4/img5.jpeg',
-           ]
+        ]
     },
-    
+
     // Add more products here if needed
     {
         id: 17,
@@ -442,7 +443,7 @@ const products : Product[] = [
             '/woman/sale/spring/p1/img4.jpeg',
             '/woman/sale/spring/p1/img5.jpeg',
             '/woman/sale/spring/p1/img6.jpeg',
-       ]
+        ]
     },
     {
         id: 18,
@@ -494,7 +495,7 @@ const products : Product[] = [
 
         ]
     },
-   
+
     {
         id: 20,
         name: "Woolen Cardigan",
@@ -517,7 +518,7 @@ const products : Product[] = [
             '/woman/sale/spring/p4/img4.jpeg',
             '/woman/sale/spring/p4/img5.jpeg',
             '/woman/sale/spring/p4/img6.jpeg',
-       
+
         ]
     },
     {
@@ -538,7 +539,7 @@ const products : Product[] = [
             '/woman/bottom/p1/img2.jpeg',
             '/woman/bottom/p1/img3.jpeg',
             '/woman/bottom/p1/img4.jpeg',
-         ]
+        ]
     },
     {
         id: 22,
@@ -562,7 +563,7 @@ const products : Product[] = [
             '/woman/bottom/p2/img4.jpeg',
             '/woman/bottom/p2/img5.jpeg',
             '/woman/bottom/p2/img6.jpeg',
-]
+        ]
     },
     {
         id: 23,
@@ -585,7 +586,7 @@ const products : Product[] = [
             '/woman/bottom/p3/img3.jpeg',
             '/woman/bottom/p3/img4.jpeg',
             '/woman/bottom/p3/img5.jpeg',
-       
+
         ]
     },
     {
@@ -608,7 +609,7 @@ const products : Product[] = [
             '/woman/bottom/p4/img2.jpeg',
             '/woman/bottom/p4/img3.jpeg',
             '/woman/bottom/p4/img4.jpeg',
-      
+
         ]
     },
     {
@@ -629,7 +630,7 @@ const products : Product[] = [
             '/accessories/bag/p1/2.jpeg',
             '/accessories/bag/p1/3.jpeg',
             '/accessories/bag/p1/4.jpeg',
-        
+
         ]
     },
     {
@@ -652,7 +653,7 @@ const products : Product[] = [
             '/accessories/bag/p2/2.jpeg',
             '/accessories/bag/p2/3.jpeg',
             '/accessories/bag/p2/4.jpeg',
-       ]
+        ]
     },
     {
         id: 27,
@@ -670,7 +671,7 @@ const products : Product[] = [
 
         code: "W1748TP-XSL-565",
         images: [
-            
+
             '/accessories/bag/p3/1.jpeg',
             '/accessories/bag/p3/2.jpeg',
             '/accessories/bag/p3/3.jpeg',
@@ -695,7 +696,7 @@ const products : Product[] = [
 
         code: "U3695SH-SSH-034",
         images: [
-          
+
             '/accessories/bag/p4/1.jpeg',
             '/accessories/bag/p4/2.jpeg',
             '/accessories/bag/p4/3.jpeg',
@@ -704,7 +705,7 @@ const products : Product[] = [
         ]
     },
     // Add more products here if needed
-    
+
     {
         id: 29,
         name: "Classic Heels",
@@ -746,7 +747,7 @@ const products : Product[] = [
             '/accessories/footwear/woman/p2/img3.jpeg',
             '/accessories/footwear/woman/p2/img4.jpeg',
             '/accessories/footwear/woman/p2/img5.jpeg',
-            ]
+        ]
     },
     {
         id: 31,
@@ -764,7 +765,7 @@ const products : Product[] = [
         images: [
             '/accessories/jewellery/p1/1.jpeg',
             '/accessories/jewellery/p1/2.jpeg',
-       
+
         ]
     },
     {
@@ -787,7 +788,7 @@ const products : Product[] = [
             '/accessories/jewellery/p2/2.jpeg',
             '/accessories/jewellery/p2/3.jpeg',
             '/accessories/jewellery/p2/4.jpeg',
-       
+
         ]
     },
     {
@@ -844,42 +845,83 @@ const products : Product[] = [
 
 
 
-function ProductId({ params }: ProductIdProps) {  // Accept params as a prop
+const ProductId = () => {  // Accept params as a prop
 
-    const [selectedImage, setSelectedImage] = useState<string>("");
+    const params = useParams(); // Retrieve dynamic route params
+    const productId = Number(params?.id);
+
+
+    const selectedProduct = products.find((item) => item.id === productId);
+
+    const [selectedImage, setSelectedImage] = useState<string>(
+        selectedProduct?.images[0] || ''
+    );
     const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
     const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
 
-    const selectedProduct = products.find((item) => item.id === Number(params.id));
-
     useEffect(() => {
-      if (selectedProduct) {
-        setSelectedImage(selectedProduct.images[0] || ""); // Ensure a valid default image
-      }
+        if (selectedProduct) {
+            setSelectedImage(selectedProduct.images[0]);
+        }
     }, [selectedProduct]);
 
     if (!selectedProduct) {
-      return (
-        <div className="max-w-screen-xl mx-auto p-4">
-          <h1 className="text-2xl font-bold mb-4">Item not found</h1>
-          <p>The item you are looking for does not exist.</p>
-        </div>
-      );
+        return (
+            <div className="max-w-screen-xl mx-auto p-4">
+                <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+                <p>The item you are looking for does not exist.</p>
+            </div>
+        );
     }
 
     const renderStars = (rating: number): JSX.Element[] => {
-      return Array.from({ length: 5 }, (_, i) =>
-        i < rating ? (
-          <IoMdStar key={i} className="text-yellow-500" />
-        ) : (
-          <IoMdStarOutline key={i} className="text-yellow-500" />
-        )
-      );
+        return Array.from({ length: 5 }, (_, i) =>
+            i < rating ? (
+                <IoMdStar key={i} className="text-yellow-500" />
+            ) : (
+                <IoMdStarOutline key={i} className="text-yellow-500" />
+            )
+        );
     };
 
     const handleImageClick = (imageUrl: string) => {
-      setSelectedImage(imageUrl);
+        setSelectedImage(imageUrl);
     };
+
+    // const [selectedImage, setSelectedImage] = useState<string>("");
+    // const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
+    // const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
+
+    // const selectedProduct = products.find((item) => item.id === Number(params.id));
+
+    // useEffect(() => {
+    //   if (selectedProduct) {
+    //     setSelectedImage(selectedProduct.images[0] || ""); // Ensure a valid default image
+    //   }
+    // }, [selectedProduct]);
+
+    // if (!selectedProduct) {
+    //   return (
+    //     <div className="max-w-screen-xl mx-auto p-4">
+    //       <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+    //       <p>The item you are looking for does not exist.</p>
+    //     </div>
+    //   );
+    // }
+
+    // const renderStars = (rating: number): JSX.Element[] => {
+    //   return Array.from({ length: 5 }, (_, i) =>
+    //     i < rating ? (
+    //       <IoMdStar key={i} className="text-yellow-500" />
+    //     ) : (
+    //       <IoMdStarOutline key={i} className="text-yellow-500" />
+    //     )
+    //   );
+    // };
+
+    // const handleImageClick = (imageUrl: string) => {
+    //   setSelectedImage(imageUrl);
+    // };
 
 
     // const selectedProduct = products.find((item) => item.id === Number(params.id));
@@ -973,7 +1015,7 @@ function ProductId({ params }: ProductIdProps) {  // Accept params as a prop
                         </p>
                         {isDisclaimerOpen && <p className="my-4 text-gray-600">{selectedProduct.disclaimer}</p>}
                     </div>
-                    <Review/>
+                    <Review />
                 </div>
 
                 {/* Right Column: Additional Product Info */}

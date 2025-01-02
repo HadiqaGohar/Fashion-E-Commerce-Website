@@ -1,22 +1,29 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 
+interface Review {
+    id: number;
+    rating: number;
+    comment: string;
+    date: string;
+}
+
 export default function ProductReview() {
-    const [reviews, setReviews] = useState([]);
+    const [reviews, setReviews] = useState<Review[]>([]);
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
     const [reviewSubmitted, setReviewSubmitted] = useState(false);
-    const [editingId, setEditingId] = useState(null); // Track if editing a review
+    const [editingId, setEditingId] = useState<number | null>(null); // Track if editing a review
 
     // Handle form submission
-    const handleReviewSubmit = (e) => {
+    const handleReviewSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (rating === 0 || comment === '') {
             alert("Please provide both a rating and a comment.");
             return;
         }
 
-        if (editingId) {
+        if (editingId !== null) {
             // Edit existing review
             setReviews((prevReviews) =>
                 prevReviews.map((review) =>
@@ -26,7 +33,7 @@ export default function ProductReview() {
             setEditingId(null);
         } else {
             // Add new review
-            const newReview = {
+            const newReview: Review = {
                 id: reviews.length + 1,
                 rating,
                 comment,
@@ -44,7 +51,7 @@ export default function ProductReview() {
     };
 
     // Handle review edit
-    const handleEdit = (id) => {
+    const handleEdit = (id: number) => {
         const reviewToEdit = reviews.find((review) => review.id === id);
         if (reviewToEdit) {
             setRating(reviewToEdit.rating);
@@ -54,12 +61,12 @@ export default function ProductReview() {
     };
 
     // Handle review delete
-    const handleDelete = (id) => {
+    const handleDelete = (id: number) => {
         setReviews(reviews.filter((review) => review.id !== id));
     };
 
     // Render stars based on rating
-    const renderStars = (num, editable = false) => {
+    const renderStars = (num: number, editable = false) => {
         return [...Array(5)].map((_, i) => (
             <span
                 key={i}

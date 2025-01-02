@@ -6,6 +6,7 @@ import { IoMdStar, IoMdStarOutline } from 'react-icons/io';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 // import NavIcon from '@/app/components/NavIcon';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 
 
 type Product = {
@@ -23,9 +24,9 @@ type Product = {
   images: string[];
 };
 
-type WomanShirtIdProps = {
-  params: { id: string };
-};
+// type WomanShirtIdProps = {
+//   params: { id: string };
+// };
 
 
 const products : Product[] = [
@@ -141,43 +142,84 @@ const products : Product[] = [
 
 
 
-function WomanShirtId({ params }: WomanShirtIdProps) {  // Accept params as a prop
+const WomanShirtId = () => {  // Accept params as a prop
 
 
-  const [selectedImage, setSelectedImage] = useState<string>("");
-  const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
-  const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
-
-  const selectedProduct = products.find((item) => item.id === Number(params.id));
-
-  useEffect(() => {
-    if (selectedProduct) {
-      setSelectedImage(selectedProduct.images[0] || ""); // Ensure a valid default image
+    const params = useParams(); // Retrieve dynamic route params
+    const productId = Number(params?.id);
+  
+    const selectedProduct = products.find((item) => item.id === productId);
+  
+    const [selectedImage, setSelectedImage] = useState<string>(
+      selectedProduct?.images[0] || ''
+    );
+    const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
+    const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
+  
+    useEffect(() => {
+      if (selectedProduct) {
+        setSelectedImage(selectedProduct.images[0]);
+      }
+    }, [selectedProduct]);
+  
+    if (!selectedProduct) {
+      return (
+        <div className="max-w-screen-xl mx-auto p-4">
+          <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+          <p>The item you are looking for does not exist.</p>
+        </div>
+      );
     }
-  }, [selectedProduct]);
+  
+    const renderStars = (rating: number): JSX.Element[] => {
+      return Array.from({ length: 5 }, (_, i) =>
+        i < rating ? (
+          <IoMdStar key={i} className="text-yellow-500" />
+        ) : (
+          <IoMdStarOutline key={i} className="text-yellow-500" />
+        )
+      );
+    };
+  
+    const handleImageClick = (imageUrl: string) => {
+      setSelectedImage(imageUrl);
+    };
+  
 
-  if (!selectedProduct) {
-    return (
-      <div className="max-w-screen-xl mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">Item not found</h1>
-        <p>The item you are looking for does not exist.</p>
-      </div>
-    );
-  }
+  // const [selectedImage, setSelectedImage] = useState<string>("");
+  // const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
+  // const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
 
-  const renderStars = (rating: number): JSX.Element[] => {
-    return Array.from({ length: 5 }, (_, i) =>
-      i < rating ? (
-        <IoMdStar key={i} className="text-yellow-500" />
-      ) : (
-        <IoMdStarOutline key={i} className="text-yellow-500" />
-      )
-    );
-  };
+  // const selectedProduct = products.find((item) => item.id === Number(params.id));
 
-  const handleImageClick = (imageUrl: string) => {
-    setSelectedImage(imageUrl);
-  };
+  // useEffect(() => {
+  //   if (selectedProduct) {
+  //     setSelectedImage(selectedProduct.images[0] || ""); // Ensure a valid default image
+  //   }
+  // }, [selectedProduct]);
+
+  // if (!selectedProduct) {
+  //   return (
+  //     <div className="max-w-screen-xl mx-auto p-4">
+  //       <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+  //       <p>The item you are looking for does not exist.</p>
+  //     </div>
+  //   );
+  // }
+
+  // const renderStars = (rating: number): JSX.Element[] => {
+  //   return Array.from({ length: 5 }, (_, i) =>
+  //     i < rating ? (
+  //       <IoMdStar key={i} className="text-yellow-500" />
+  //     ) : (
+  //       <IoMdStarOutline key={i} className="text-yellow-500" />
+  //     )
+  //   );
+  // };
+
+  // const handleImageClick = (imageUrl: string) => {
+  //   setSelectedImage(imageUrl);
+  // };
 
 
   // const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);

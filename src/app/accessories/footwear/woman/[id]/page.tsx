@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { IoMdStar, IoMdStarOutline } from 'react-icons/io';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 
 
 
@@ -23,9 +24,9 @@ type Product = {
   images: string[];
 };
 
-type FootwearWomanIdProps = {
-  params: { id: string };
-};
+// type FootwearWomanIdProps = {
+//   params: { id: string };
+// };
 
 
 const products : Product[] = [
@@ -93,18 +94,22 @@ const products : Product[] = [
 //   id: string;
 // }
 
-function WomanFootwearId({ params }: FootwearWomanIdProps) {
- 
+const WomanFootwearId = () => {
+  const params = useParams(); // Retrieve dynamic route params
+  const productId = Number(params?.id);
 
-  const [selectedImage, setSelectedImage] = useState<string>("");
+
+  const selectedProduct = products.find((item) => item.id === productId);
+  
+  const [selectedImage, setSelectedImage] = useState<string>(
+    selectedProduct?.images[0] || ''
+  );
   const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
   const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
 
-  const selectedProduct = products.find((item) => item.id === Number(params.id));
-
   useEffect(() => {
     if (selectedProduct) {
-      setSelectedImage(selectedProduct.images[0] || ""); // Ensure a valid default image
+      setSelectedImage(selectedProduct.images[0]);
     }
   }, [selectedProduct]);
 
@@ -130,8 +135,6 @@ function WomanFootwearId({ params }: FootwearWomanIdProps) {
   const handleImageClick = (imageUrl: string) => {
     setSelectedImage(imageUrl);
   };
-
-
 
   // const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
   // const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);

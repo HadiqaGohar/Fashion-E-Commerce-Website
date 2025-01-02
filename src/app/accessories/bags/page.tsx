@@ -6,6 +6,8 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import Image from 'next/image';
 
+
+
 const BagsList = () => {
     // Array of products with id, name, price, and multiple image URLs
     const products = [
@@ -69,20 +71,47 @@ const BagsList = () => {
         // Add more products here if needed
     ];
 
-    // State to keep track of the selected image index for each product
-    const [imageIndexes, setImageIndexes] = useState(
-        products.reduce((acc, product) => {
-            acc[product.id] = 0; // Initial image index is 0 for each product
-            return acc;
-        }, {})
-    );
 
-    const handleImageChange = (productId: number, index: number) => {
-        setImageIndexes((prevIndexes) => ({
-            ...prevIndexes,
-            [productId]: index
-        }));
-    };
+
+
+
+
+ // State to keep track of the selected image index for each product
+ const [imageIndexes, setImageIndexes] = useState<{
+  [key: number]: number;
+}>(
+  products.reduce((acc, product) => {
+      acc[product.id] = 0; // Initial image index is 0 for each product
+      return acc;
+  }, {} as { [key: number]: number })
+);
+
+const handleImageChange = (productId: number, index: number) => {
+  setImageIndexes((prevIndexes) => ({
+      ...prevIndexes,
+      [productId]: index,
+  }));
+};
+
+
+
+
+
+
+    // State to keep track of the selected image index for each product
+    // const [imageIndexes, setImageIndexes] = useState(
+    //     products.reduce((acc, product) => {
+    //         acc[product.id] = 0; // Initial image index is 0 for each product
+    //         return acc;
+    //     }, {})
+    // );
+
+    // const handleImageChange = (productId: number, index: number) => {
+    //     setImageIndexes((prevIndexes) => ({
+    //         ...prevIndexes,
+    //         [productId]: index
+    //     }));
+    // };
 
     return (
         <div className=' max-w-screen-2xl mx-auto'>
