@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { HiMiniSquares2X2 } from "react-icons/hi2";
 
 const Footwear = () => {
     const accessories = [
@@ -23,9 +24,15 @@ const Footwear = () => {
                 </div>
             </div>
           
-           <h1 className='text-2xl md:text-4xl text-center font-bold mb-4'>FOOTWEARS </h1>
-            <hr className='border-2 w-32 mb-4 mx-auto border-teal-700'/>
-         
+           
+           {/* <h1 className='text-2xl md:text-4xl text-center font-bold mb-4'>FOOTWEARS </h1> */}
+            {/* <hr className='border-2 w-32 mb-4 mx-auto border-teal-700'/> */}
+            <div className="flex gap-2 md:gap-3 text-center justify-center">
+                <div className="ml-2 text-teal-500 text-3xl sm:text-2xl md:ml-6 mt-8  md:mt-6" aria-label="Shopping Cart Icon">
+                    <HiMiniSquares2X2 size={40} />
+                </div>
+                <h2 className="  md:text-4xl  text-center my-6 text-2xl sm:text-4xl text-gray-700 font-semibold mb-6 mt-10 md:mt-6">Latest Footwears Collections</h2>
+            </div>
 
             <div className="overflow-x-auto max-w-full">
                 <ul className="flex space-x-6 justify-center mx-auto items-center text-center">

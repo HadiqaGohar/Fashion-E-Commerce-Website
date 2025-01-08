@@ -5,15 +5,12 @@ import { IoCallOutline } from 'react-icons/io5';
 
 function Contact() {
     return (
-        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white px-4 py-8 sm:px-6 md:py-12 max-w-screen-2xl mx-auto">
-            
             {/* Contact Information */}
             <div className="space-y-10 rounded shadow-md p-5">
-                {/* Breadcrumb */}
-                {/* <p className="text-xs sm:text-sm text-gray-600 mb-4">Home / Contact</p> */}
-
-            <p className="text-xs sm:text-sm text-gray-600 mb-4"><Link href='/' className='hover:text-teal-500'>Home</Link> / <Link href='/contact' className='hover:text-teal-500'>Contact</Link></p>
+                <p className="text-xs sm:text-sm text-gray-600 mb-4">
+                    <Link href='/' className='hover:text-teal-500'>Home</Link> / <Link href='/contact' className='hover:text-teal-500'>Contact</Link>
+                </p>
 
                 {/* Call To Us */}
                 <div className="flex flex-col items-start space-y-4">
@@ -23,9 +20,7 @@ function Contact() {
                         </div>
                         <h4 className="text-lg font-semibold">Call To Us</h4>
                     </div>
-                    <p className="text-gray-600 text-sm">
-                        We are available 24/7, 7 days a week.
-                    </p>
+                    <p className="text-gray-600 text-sm">We are available 24/7, 7 days a week.</p>
                     <p className="text-gray-800 text-sm font-medium">Phone: +1234555676</p>
                 </div>
                 <hr className="my-10" />
@@ -38,9 +33,7 @@ function Contact() {
                         </div>
                         <h4 className="text-lg font-semibold">Write To Us</h4>
                     </div>
-                    <p className="text-gray-600 text-sm">
-                        Fill out the form and we will contact you within 24 hours.
-                    </p>
+                    <p className="text-gray-600 text-sm">Fill out the form and we will contact you within 24 hours.</p>
                     <p className="text-gray-800 text-sm font-medium">Emails: customer@hg.com</p>
                     <p className="text-gray-800 text-sm font-medium">Emails: support@hg.com</p>
                 </div>
@@ -48,26 +41,39 @@ function Contact() {
 
             {/* Contact Form */}
             <div className="p-6 rounded-lg shadow-md">
-                <form action="" className="space-y-6">
+                <form
+                    action="https://api.web3forms.com/submit"
+                    method="POST"
+                    className="space-y-4"
+                >
+                    {/* Hidden input for access_key */}
+                    <input type="hidden" name="access_key" value="671277a9-3056-46df-ae88-682920d99420" />
+
                     {/* Name and Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <input
                             type="text"
+                            name="name" // Added name attribute
                             placeholder="Your Name*"
-                            className="w-full bg-gray-100 px-4 py-2 border border-teal-300 rounded focus:outline-none focus:ring-2 focus:teal-red-500"
+                            className="w-full bg-gray-100 px-4 py-2 border border-teal-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                            required
                         />
                         <input
                             type="email"
+                            name="email" // Added name attribute
                             placeholder="Your Email*"
-                            className="w-full bg-gray-100 px-4 py-2 border border-teal-300 rounded focus:outline-none focus:ring-2 focus:teal-red-500"
+                            className="w-full bg-gray-100 px-4 py-2 border border-teal-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                            required
                         />
                     </div>
 
                     {/* Message */}
                     <textarea
+                        name="message" // Added name attribute
                         placeholder="Your Message*"
                         rows={4} // Corrected to use numeric value
-                        className="w-full bg-gray-100 px-4 py-2 border border-teal-300 rounded focus:outline-none focus:ring-2 focus:teal-red-500"
+                        className="w-full bg-gray-100 px-4 py-2 border border-teal-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                        required
                     ></textarea>
 
                     {/* Submit Button */}

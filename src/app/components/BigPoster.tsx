@@ -18,7 +18,7 @@ function BigPoster() {
             the majority have been altered.
           </p>
           <div>
-            <Link href='/woman'>
+            <Link href='/products'>
             <button className="bg-white text-[#1c3456] font-medium px-8 py-3 rounded-full shadow hover:shadow-lg transition-transform transform hover:scale-105">
               GET IT NOW
             </button>

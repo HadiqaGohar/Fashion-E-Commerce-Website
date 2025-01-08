@@ -82,3 +82,19 @@
   padding: 16px;
   z-index: 1000;
 }
+
+/* Sidebar transition */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  transform: translateX(100%); /* Sidebar initial state - hidden */
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.visible {
+  transform: translateX(0); /* Show the sidebar */
+}

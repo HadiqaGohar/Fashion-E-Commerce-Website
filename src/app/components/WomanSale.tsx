@@ -1,13 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
+import { HiMiniSquares2X2 } from "react-icons/hi2";
 
 
 
 const WomanSale = () => {
     return (
         <div>
-            <h1 className="font-semibold text-2xl md:text-4xl text-gray-900 text-center my-6">LATEST SALES</h1>
-
+            {/* <h1 className="font-semibold text-2xl md:text-4xl text-gray-900 text-center my-6">LATEST SALES</h1> */}
+            <div className="flex gap-2 md:gap-3 text-center justify-center">
+                <div className="ml-2 text-teal-500 text-3xl sm:text-2xl md:ml-6 mt-8  md:mt-6" aria-label="Shopping Cart Icon">
+                    <HiMiniSquares2X2 size={40} />
+                </div>
+                <h2 className="  md:text-4xl  text-center my-6 text-2xl sm:text-4xl text-gray-700 font-semibold mb-6 mt-10 md:mt-6">Latest Sales</h2>
+            </div>
             <ul className="flex flex-wrap items-center justify-center space-x-6 space-y-4">
                 <Link href="./sale/winter" className="animate-slideInTopToBottom">
                     <li className="flex flex-col items-center cursor-pointer mt-3">

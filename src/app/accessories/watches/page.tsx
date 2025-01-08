@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { HiMiniSquares2X2 } from 'react-icons/hi2';
 
 const WatchList = () => {
     // Array of products with id, name, price, and multiple image URLs
@@ -81,8 +82,13 @@ const handleImageChange = (productId: number, index: number) => {
                     <video src="/accessories/watch/watch.mp4" className='w-[1530px] h-[400px]'></video>
                 </div>
             </div>
-            <h1 className='text-2xl md:text-4xl text-center font-bold my-5'>LATEST WATCHES COLLECTION </h1>
-
+            {/* <h1 className='text-2xl md:text-4xl text-center font-bold my-5'>LATEST WATCHES COLLECTION </h1> */}
+            <div className="flex gap-2 md:gap-3 text-center justify-center">
+                <div className="ml-2 text-teal-500 text-3xl sm:text-2xl md:ml-6 mt-8  md:mt-6" aria-label="Shopping Cart Icon">
+                    <HiMiniSquares2X2 size={40} />
+                </div>
+                <h2 className="  md:text-4xl  text-center my-6 text-2xl sm:text-4xl text-gray-700 font-semibold mb-6 mt-10 md:mt-6">Unique Watches Collections </h2>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mx-auto justify-center my-8">
       
       {products.map((product) => (

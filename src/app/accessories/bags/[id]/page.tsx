@@ -7,6 +7,7 @@ import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 
+
 type Product = {
   id: number;
   name: string;
@@ -106,7 +107,9 @@ const products: Product[] = [
     },
   ];
 
-  const BagsId = () => {
+  const BagsId =  () => {
+
+
     const params = useParams(); // Retrieve dynamic route params
     const productId = Number(params?.id);
   
@@ -117,6 +120,8 @@ const products: Product[] = [
     );
     const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
     const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
+      //  const [cart, setCart] = useState<Product[]>([]); // Cart state
+    
   
     useEffect(() => {
       if (selectedProduct) {
@@ -146,6 +151,25 @@ const products: Product[] = [
     const handleImageClick = (imageUrl: string) => {
       setSelectedImage(imageUrl);
     };
+
+
+     
+    // Define the addItem function
+    // const addItem = (product: Product) => {
+    //   setCart((prevCart) => [...prevCart, product]);
+    // };
+  
+    if (!selectedProduct) {
+      return (
+        <div className="max-w-screen-xl mx-auto p-4">
+          <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+          <p>The item you are looking for does not exist.</p>
+        </div>
+      );
+    }
+
+
+
   
     return (
       <div className="max-w-screen-2xl mx-auto">
@@ -183,9 +207,14 @@ const products: Product[] = [
             <h1 className="text-3xl font-serif">{selectedProduct.name}</h1>
             <p className="mt-2 text-xl font-serif">{selectedProduct.price}</p>
             <div className="flex mt-2">{renderStars(selectedProduct.rate)}</div>
-            <button className="bg-black text-white h-12 w-[80%] rounded-xl my-8 shadow-lg">
+           
+              <button
+              className="bg-black text-white h-12 w-[80%] rounded-xl my-8 shadow-lg"
+              
+            >
               Add to Cart
             </button>
+            
             <div>
               <p
                 className="cursor-pointer text-gray-700 font-semibold my-4"
@@ -253,3 +282,149 @@ const products: Product[] = [
   };
   
   export default BagsId;
+
+
+
+
+  // const BagsId = () => {
+  //   const params = useParams();
+  //   const productId = Number(params?.id);
+  //   const selectedProduct = products.find((item) => item.id === productId);
+  
+  //   const [selectedImage, setSelectedImage] = useState<string>(selectedProduct?.images[0] || '');
+  //   const [isCareInstructionsOpen, setCareInstructionsOpen] = useState(false);
+  //   const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
+  //   const [cart, setCart] = useState<Product[]>([]); // Cart state
+    
+  //   useEffect(() => {
+  //     if (selectedProduct) {
+  //       setSelectedImage(selectedProduct.images[0]);
+  //     }
+  //   }, [selectedProduct]);
+  
+  //   const renderStars = (rating: number): JSX.Element[] => {
+  //     return Array.from({ length: 5 }, (_, i) =>
+  //       i < rating ? (
+  //         <IoMdStar key={i} className="text-yellow-500" />
+  //       ) : (
+  //         <IoMdStarOutline key={i} className="text-yellow-500" />
+  //       )
+  //     );
+  //   };
+  
+  //   const handleImageClick = (imageUrl: string) => {
+  //     setSelectedImage(imageUrl);
+  //   };
+  
+  //   // Define the addItem function
+  //   const addItem = (product: Product) => {
+  //     setCart((prevCart) => [...prevCart, product]);
+  //   };
+  
+  //   if (!selectedProduct) {
+  //     return (
+  //       <div className="max-w-screen-xl mx-auto p-4">
+  //         <h1 className="text-2xl font-bold mb-4">Item not found</h1>
+  //         <p>The item you are looking for does not exist.</p>
+  //       </div>
+  //     );
+  //   }
+  
+  //   return (
+  //     <div className="max-w-screen-2xl mx-auto">
+  //       <div className="flex flex-col lg:flex-row justify-center lg:justify-between m-10 mt-16">
+  //         {/* Left Column */}
+  //         <div className="flex flex-col lg:flex-row justify-center lg:w-1/3 gap-4">
+  //           <div className="relative">
+  //             <Image
+  //               src={selectedImage}
+  //               alt="Selected Product"
+  //               width={800}
+  //               height={600}
+  //               className="max-w-full md:h-[600px] h-[400px] object-cover mx-auto"
+  //             />
+  //           </div>
+  //           <div className="flex flex-row lg:flex-col gap-1 mt-4 lg:mt-0 lg:ml-2 mx-auto">
+  //             {selectedProduct.images.map((image, index) => (
+  //               <Image
+  //                 key={index}
+  //                 src={image}
+  //                 width={64}
+  //                 height={64}
+  //                 alt={`Product ${index}`}
+  //                 className={`w-10 h-10 md:w-28 md:h-16 cursor-pointer border-2 ${
+  //                   selectedImage === image ? 'border-blue-500' : 'border-gray-300'
+  //                 }`}
+  //                 onClick={() => handleImageClick(image)}
+  //               />
+  //             ))}
+  //           </div>
+  //         </div>
+  
+  //         {/* Center Column */}
+  //         <div className="flex flex-col lg:w-1/4">
+  //           <h1 className="text-3xl font-serif">{selectedProduct.name}</h1>
+  //           <p className="mt-2 text-xl font-serif">{selectedProduct.price}</p>
+  //           <div className="flex mt-2">{renderStars(selectedProduct.rate)}</div>
+  //           <button
+  //             className="bg-black text-white h-12 w-[80%] rounded-xl my-8 shadow-lg"
+  //             onClick={() => addItem(selectedProduct)} // Add item to cart
+  //           >
+  //             Add to Cart
+  //           </button>
+  //           <div>
+  //             <p
+  //               className="cursor-pointer text-gray-700 font-semibold my-4"
+  //               onClick={() => setCareInstructionsOpen(!isCareInstructionsOpen)}
+  //             >
+  //               Care Instructions <MdOutlineKeyboardArrowDown />
+  //             </p>
+  //             {isCareInstructionsOpen && (
+  //               <p className="my-4 text-gray-600">{selectedProduct.instruction}</p>
+  //             )}
+  //           </div>
+  //           <div>
+  //             <p
+  //               className="cursor-pointer text-gray-700 font-semibold my-4"
+  //               onClick={() => setDisclaimerOpen(!isDisclaimerOpen)}
+  //             >
+  //               Disclaimer <MdOutlineKeyboardArrowDown />
+  //             </p>
+  //             {isDisclaimerOpen && (
+  //               <p className="my-4 text-gray-600">{selectedProduct.disclaimer}</p>
+  //             )}
+  //           </div>
+  //           <Review />
+  //         </div>
+  
+  //         {/* Cart Display */}
+  //         <div className="cart-list">
+  //           <h2>Cart:</h2>
+  //           {cart.length > 0 ? (
+  //             <ul>
+  //               {cart.map((product, index) => (
+  //                 <li key={index}>{product.name} - {product.price}</li>
+  //               ))}
+  //             </ul>
+  //           ) : (
+  //             <p>No items in cart</p>
+  //           )}
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // };
+  
+  // export default BagsId;
+  
+
+
+
+
+
+
+
+
+
+
+  

@@ -1,6 +1,7 @@
 import React from 'react'
 import Accessories from '../components/Accessories'
 import Image from 'next/image'
+import { HiMiniSquares2X2 } from 'react-icons/hi2'
 
 
 
@@ -21,6 +22,12 @@ function AccessoriesCollection() {
                 </div>
             </div>
             {/* <Scroll /> */}
+            <div className="flex gap-2 md:gap-3 text-center justify-center">
+                <div className="ml-2 text-teal-500 text-3xl sm:text-2xl md:ml-6 mt-8  md:mt-6" aria-label="Shopping Cart Icon">
+                    <HiMiniSquares2X2 size={40} />
+                </div>
+                <h2 className="  md:text-4xl  text-center my-6 text-2xl sm:text-4xl text-gray-700 font-semibold mb-6 mt-10 md:mt-6">Accessories Collections</h2>
+            </div>
 
             <div className='my-6'>
                 <Accessories />
