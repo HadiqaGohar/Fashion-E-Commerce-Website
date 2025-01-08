@@ -58,7 +58,7 @@ function Header() {
             </div>
           </div>
 
-          <div className="my-auto w-full ml-12 md:ml-0 md:w-auto  -mt-6 md:mt-4">
+          <div className="my-auto w-full ml-8 md:ml-0 md:w-auto  -mt-6 md:mt-4">
             <nav className="p-4 w-full">
               <ul className="max-w-screen-2xl mx-auto flex flex-wrap justify-center text-xs md:text-[16px] space-x-5 md:space-x-8 sm:space-x-2 text-black font-medium">
                 <li>
