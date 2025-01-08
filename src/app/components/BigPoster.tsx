@@ -35,7 +35,7 @@ function BigPoster() {
             height={500}
             className="rounded-lg "
           />
-          <div className=' absolute text-white opacity-90 mt-32 -mr-20 md:-mr-96 animate-pulse md:mt-[350px]'>
+          <div className=' absolute text-white opacity-90  -mr-24 md:-mr-96 animate-pulse md:mt-[350px]'>
             <RxDragHandleDots1 size={200} />
           </div>
         </div>
