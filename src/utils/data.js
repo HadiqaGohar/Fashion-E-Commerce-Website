@@ -114,7 +114,7 @@ export const data = {
         {
             id: 5,
             name: "Printed Satin Scarf",
-            price: 255.00,
+            price: 106.00,
             shirt: "Printed scarf",
             fabric: "Satin",
             color: "Multi Color",

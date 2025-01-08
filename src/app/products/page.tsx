@@ -19,7 +19,7 @@ const Products = () => {
       {
           id: 1,
           name: "Sequin Jacket",
-          price: "$5.00",
+          price: "$255.00",
           href: "/products/1",
           images: [
               '/woman/shirts/p1/img1.jpeg',
@@ -36,7 +36,7 @@ const Products = () => {
       {
           id: 2,
           name: "Embellished Sweater",
-          price: "$6.00",
+          price: "$106.00",
           href: "/products/2",
           images: [
               '/woman/shirts/p2/img1.jpeg',
@@ -54,7 +54,7 @@ const Products = () => {
       {
           id: 3,
           name: "Dyed Silk Top",
-          price: "$10.00",
+          price: "$160.00",
           href: "/products/3",
           images: [
               '/woman/shirts/p3/img5.jpeg',
@@ -71,7 +71,7 @@ const Products = () => {
       {
           id: 4,
           name: "Dyed Grip Co-Ord Set",
-          price: "$8.00",
+          price: "$236.00",
           href: "/products/4",
           images: [
               '/woman/shirts/p4/img1.jpeg',
@@ -88,7 +88,7 @@ const Products = () => {
       {
           id: 5,
           name: "Printed Satin Scarf",
-          price: "$5.00",
+          price: "$106.00",
           href: "/products/5",
           images: [
               '/woman/scarves/p1/img1.jpeg',
@@ -100,7 +100,7 @@ const Products = () => {
       {
           id: 6,
           name: "Printed Viscose Scarf",
-          price: "$6.00",
+          price: "$106.00",
           href: "/products/6",
           images: [
               '/woman/scarves/p2/img1.jpeg',
@@ -114,7 +114,7 @@ const Products = () => {
       {
           id: 7,
           name: "Printed Wool Scarf",
-          price: "$10.00",
+          price: "$106.00",
           href: "/products/7",
           images: [
               '/woman/scarves/p3/img1.jpeg',
@@ -127,7 +127,7 @@ const Products = () => {
       {
           id: 8,
           name: "Floral Printed Viscose Scarf",
-          price: "$8.00",
+          price: "$106.00",
           href: "/products/8",
           images: [
               '/woman/scarves/p4/img1.jpeg',
@@ -141,7 +141,7 @@ const Products = () => {
       {
           id: 9,
           name: "Embellished Crew Neck Sweater",
-          price: "$5.00",
+          price: "$225.00",
           href: "/products/9",
           images: [
               '/woman/sale/winter/p1/img1.jpeg',
@@ -158,7 +158,7 @@ const Products = () => {
       {
           id: 10,
           name: "Woolen Fur Cape Shawl",
-          price: "$6.00",
+          price: "$346.00",
           href: "/products/10",
           images: [
               '/woman/sale/winter/p2/img1.jpeg',
@@ -176,7 +176,7 @@ const Products = () => {
       {
           id: 11,
           name: "Embellished Woolen Sweater",
-          price: "$10.00",
+          price: "$536.00",
           href: "/products/11",
           images: [
               '/woman/sale/winter/p3/img1.jpeg',
@@ -192,7 +192,7 @@ const Products = () => {
       {
           id: 12,
           name: "Glittered Sweater",
-          price: "$8.00",
+          price: "$216.00",
           href: "/products/12",
           images: [
 
@@ -209,7 +209,7 @@ const Products = () => {
       {
           id: 13,
           name: "Embroidered Net Top",
-          price: "$5.00",
+          price: "$315.00",
           href: "/products/13",
           images: [
               '/woman/sale/summer/p1/img1.jpeg',
@@ -224,7 +224,7 @@ const Products = () => {
       {
           id: 14,
           name: "Printed Grip Top",
-          price: "$6.00",
+          price: "$536.00",
           href: "/products/14",
           images: [
 
@@ -240,7 +240,7 @@ const Products = () => {
       {
           id: 15,
           name: "Dyed Raw Silk Co-Ord Set",
-          price: "$10.00",
+          price: "$326.00",
           href: "/products/15",
           images: [
 
@@ -255,7 +255,7 @@ const Products = () => {
       {
           id: 16,
           name: "Viscose Top-Dyed",
-          price: "$8.00",
+          price: "$236.00",
           href: "/products/16",
           images: [
               '/woman/sale/summer/p4/img1.jpeg',
@@ -271,7 +271,7 @@ const Products = () => {
       {
           id: 17,
           name: "Dyed Silk Top",
-          price: "$5.00",
+          price: "$325.00",
           href: "/products/17",
           images: [
               '/woman/sale/spring/p1/img1.jpeg',
@@ -285,7 +285,7 @@ const Products = () => {
       {
           id: 18,
           name: "Embroidered Grip Top",
-          price: "$6.00",
+          price: "$246.00",
           href: "/products/18",
           images: [
               '/woman/sale/spring/p2/img1.jpeg',
@@ -301,7 +301,7 @@ const Products = () => {
       {
           id: 19,
           name: "Embellished Raw Silk Top",
-          price: "$10.00",
+          price: "$346.00",
           href: "/products/19",
           images: [
 
@@ -318,7 +318,7 @@ const Products = () => {
       {
           id: 20,
           name: "Woolen Cardigan",
-          price: "$8.00",
+          price: "$546.00",
           href: "/products/20",
           images: [
               '/woman/sale/spring/p4/img1.jpeg',
@@ -334,7 +334,7 @@ const Products = () => {
       {
           id: 21,
           name: "Dyed Grip Pants",
-          price: "$5.00",
+          price: "$235.00",
           href: "/products/21",
           images: [
               '/woman/bottom/p1/img1.jpeg',
@@ -347,7 +347,7 @@ const Products = () => {
       {
           id: 22,
           name: "Leather Pants",
-          price: "$6.00",
+          price: "$426.00",
           href: "/products/22",
           images: [
               '/woman/bottom/p2/img1.jpeg',
@@ -363,7 +363,7 @@ const Products = () => {
       {
           id: 23,
           name: "Basic Skinny Jeans",
-          price: "$10.00",
+          price: "$436.00",
           href: "/products/23",
           images: [
               '/woman/bottom/p3/img1.jpeg',
@@ -376,7 +376,7 @@ const Products = () => {
       {
           id: 24,
           name: "Snake Print Jersey Pants",
-          price: "$8.00",
+          price: "$436.00",
           href: "/products/24",
           images: [
               '/woman/bottom/p4/img1.jpeg',
@@ -390,7 +390,7 @@ const Products = () => {
       {
           id: 25,
           name: "Classic Bucket Handbag",
-          price: "$5.00",
+          price: "$535.00",
           href: "/products/25",
           images: [
               '/accessories/bag/p1/1.jpeg',
@@ -417,7 +417,7 @@ const Products = () => {
       {
           id: 27,
           name: "Stitch Pattern Clutch",
-          price: "$10.00",
+          price: "$346.00",
           href: "/products/27",
           images: [
 
@@ -433,7 +433,7 @@ const Products = () => {
       {
           id: 28,
           name: "Classic Tote Bag",
-          price: "$8.00",
+          price: "$456.00",
           href: "/products/28",
           images: [
 
@@ -450,8 +450,8 @@ const Products = () => {
       {
           id: 29,
           name: "Classic Heels",
-          price: "$5.00",
-          href: "/accessories/footwear/woman/1",
+          price: "$266.00",
+          href: "/products/29",
           images: [
               '/accessories/footwear/woman/p1/img1.jpeg',
               '/accessories/footwear/woman/p1/img2.jpeg',
@@ -462,8 +462,8 @@ const Products = () => {
       {
           id: 30,
           name: "Braided Sliders",
-          price: "$6.00",
-          href: "/accessories/footwear/woman/2",
+          price: "$326.00",
+          href: "/products/30",
           images: [
               '/accessories/footwear/woman/p2/img1.jpeg',
               '/accessories/footwear/woman/p2/img2.jpeg',
@@ -477,8 +477,8 @@ const Products = () => {
       {
           id: 31,
           name: "Abstract Floral Earrings",
-          price: "$5.00",
-          href: "/accessories/jewellery/1",
+          price: "$345.00",
+          href: "/products/31",
           images: [
               '/accessories/jewellery/p1/1.jpeg',
               '/accessories/jewellery/p1/2.jpeg',
@@ -487,8 +487,8 @@ const Products = () => {
       {
           id: 32,
           name: "Sturdy Open Bangle",
-          price: "$6.00",
-          href: "/accessories/jewellery/2",
+          price: "$346.00",
+          href: "/products/32",
           images: [
 
               '/accessories/jewellery/p2/1.jpeg',
@@ -501,8 +501,8 @@ const Products = () => {
       {
           id: 33,
           name: "Classic Watch",
-          price: "$5.00",
-          href: "/accessories/watches/1",
+          price: "$425.00",
+          href: "/products/33",
           images: [
               '/accessories/watch/p1/img1.jpeg',
               '/accessories/watch/p1/img2.jpeg',
@@ -513,8 +513,8 @@ const Products = () => {
       {
           id: 34,
           name: "Classic Leather Watch ",
-          price: "$6.00",
-          href: "/accessories/watches/2",
+          price: "$216.00",
+          href: "/products/34",
           images: [
               '/accessories/watch/p2/img1.jpeg',
               '/accessories/watch/p2/img2.jpeg',
@@ -545,24 +545,6 @@ const Products = () => {
   };
 
 
-
-
-
-
-  // State to keep track of the selected image index for each product
-  // const [imageIndexes, setImageIndexes] = useState(
-  //     products.reduce((acc, product) => {
-  //         acc[product.id] = 0; // Initial image index is 0 for each product
-  //         return acc;
-  //     }, {})
-  // );
-
-  // const handleImageChange = (productId: number, index: number) => {
-  //     setImageIndexes((prevIndexes) => ({
-  //         ...prevIndexes,
-  //         [productId]: index
-  //     }));
-  // };
 
   return (
     <div className="max-w-screen-2xl mx-auto">
