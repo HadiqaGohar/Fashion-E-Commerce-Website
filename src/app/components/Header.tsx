@@ -1,6 +1,5 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import TopMessage from './TopMessage';
 import Link from 'next/link';
 import { RiShoppingBag4Fill } from 'react-icons/ri';
 import { FaSquarespace, FaUserCircle } from 'react-icons/fa';

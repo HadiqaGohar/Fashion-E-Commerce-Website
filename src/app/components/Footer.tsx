@@ -47,10 +47,10 @@ const Footer = () => {
         <div className="shop mb-6 md:mb-0">
           <h3 className="text-lg font-semibold text-teal-600">SHOP</h3>
           <ul className="mt-2 space-y-1">
-            <li><a href="/products" className="hover:text-gray-400">Products</a></li>
-            <li><a href="/overview" className="hover:text-gray-400">Overview</a></li>
-            <li><a href="/pricing" className="hover:text-gray-400">Pricing</a></li>
-            <li><a href="/releases" className="hover:text-gray-400">Releases</a></li>
+            <li><Link href="/products" className="hover:text-gray-400">Products</Link></li>
+            <li><Link href="/overview" className="hover:text-gray-400">Overview</Link></li>
+            <li><Link href="/pricing" className="hover:text-gray-400">Pricing</Link></li>
+            <li><Link href="/releases" className="hover:text-gray-400">Releases</Link></li>
           </ul>
         </div>
 
@@ -58,10 +58,10 @@ const Footer = () => {
         <div className="company mb-6 md:mb-0">
           <h3 className="text-lg font-semibold text-teal-600">COMPANY</h3>
           <ul className="mt-2 space-y-1">
-            <li><a href="/about" className="hover:text-gray-400">About us</a></li>
-            <li><a href="/stayuptodate" className="hover:text-gray-400">Stay up to date</a></li>
-            <li><a href="/support" className="hover:text-gray-400">Support</a></li>
-            <li><a href="/contact" className="hover:text-gray-400">Contact</a></li>
+            <li><Link href="/about" className="hover:text-gray-400">About us</Link></li>
+            <li><Link href="/stayuptodate" className="hover:text-gray-400">Stay up to date</Link></li>
+            <li><Link href="/support" className="hover:text-gray-400">Support</Link></li>
+            <li><Link href="/contact" className="hover:text-gray-400">Contact</Link></li>
           </ul>
         </div>
 
