@@ -46,11 +46,11 @@ function Header() {
 
   return (
     <div className={`w-full ${isScrolled ? 'fixed-header' : ''}`}>
-      <TopMessage />
+    
       <hr />
       <div className="bg-gray-50 mx-auto justify-around">
         <div className="max-w-screen-xl mx-auto flex flex-wrap justify-between items-center px-4 md:py-2">
-          <div className="flex items-center space-x-4 p-4 md:space-x-2 md:p-4 hover:scale-105 transition-transform duration-300">
+          <div className="flex items-center my-0 space-x-4 p-4 md:space-x-2 md:p-4 hover:scale-105 transition-transform duration-300">
             <div className="text-teal-500 text-3xl sm:text-2xl" aria-label="Shopping Cart Icon">
               <FaSquarespace size={40} />
             </div>

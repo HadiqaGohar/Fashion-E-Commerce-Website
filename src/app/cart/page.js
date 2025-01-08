@@ -24,7 +24,7 @@ function CartPage() {
 
   if (cartItems.length === 0) {
     return (
-      <div className="flex justify-center items-center h-screen bg-gray-50 text-center">
+      <div className="flex justify-center items-center h-[400px] bg-gray-50 text-center">
         <div>
           <p className="text-xl font-semibold">Cart is empty.</p>
           <Link href="/products" className="text-teal-500 hover:underline mt-4 block">Go shopping</Link>

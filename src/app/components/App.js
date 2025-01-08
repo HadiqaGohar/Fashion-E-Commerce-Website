@@ -8,6 +8,7 @@ import Header from './Header'
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { usePathname } from 'next/navigation'
+import TopText from './TopMessage'
 
 
 function App({ children }) {
@@ -30,6 +31,7 @@ function App({ children }) {
                         : ''
                 }`}
             >
+                <TopText/>
                 <Header />
                 <main className='p-4'>{children}</main>
             </div>
