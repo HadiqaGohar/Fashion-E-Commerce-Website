@@ -10,7 +10,7 @@ const slides = [
         description: "Sale! Up to ",
         percentage: 50,
         img: "/img3.png",
-        href : '/woman/sale/summer',
+        href : '/products',
         bg: "bg-gradient-to-r from-yellow-50 to-pink-50",
     },
     {
@@ -19,7 +19,7 @@ const slides = [
         description: "Sale! Up to ",
         percentage: 50,
         img: "/img4.png",
-        href : '/woman/sale/winter',
+        href : '/products',
         bg: "bg-gradient-to-r from-pink-50 to-blue-50",
     },
     {
@@ -28,7 +28,7 @@ const slides = [
         description: "Sale! Up to ",
         percentage: 50,
         img: "/img1.png",
-        href : '/woman/sale/spring',
+        href : '/products',
         bg: "bg-gradient-to-r from-blue-50 to-yellow-50",
     },
 ];

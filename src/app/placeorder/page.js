@@ -36,132 +36,109 @@ function PlaceOrderScreen() {
   }, [cartItems, itemsPrice, shippingPrice, taxPrice, totalPrice])
 
   return (
-    <div>
+    <div className="py-6 ">
       <CheckoutWizard activeStep={3} />
-      <h2 className="mb-4 text-xl">Place Order</h2>
+     <div className='max-w-screen-xl mx-auto'>
+     <h2 className="mb-4 text-2xl font-semibold">Place Order</h2>
 
-      {loading ? (
-        <div>Loading...</div>
-      ) : cartItems.length === 0 ? (
-        <div>
-          Cart is empty. <Link href="/products">Go shopping</Link>
-        </div>
-      ) : (
-        <div className="grid md:grid-cols-4 md:gap-5">
-          <div className="overflow-x-auto md:col-span-3">
-            {/* Shipping Address Section */}
-            <div className="p-5">
-              <h3 className="mb-2 text-lg">Shipping Address</h3>
-              <div>
-                {shippingAddress?.fullName}, {shippingAddress?.address},{' '}
-                {shippingAddress?.city}, {shippingAddress?.postalCode},{' '}
-                {shippingAddress?.country}
-              </div>
-              <div>
-                <Link className="bg-teal-400 px-6 py-3 inline-block" href="/shipping">
-                  Edit
-                </Link>
-              </div>
-            </div>
+{loading ? (
+  <div className="text-center">Loading...</div>
+) : cartItems.length === 0 ? (
+  <div className="text-center">
+    Cart is empty. <Link href="/products" className="text-teal-600">Go shopping</Link>
+  </div>
+) : (
+  <div className="grid md:grid-cols-3 gap-5">
+    <div className="overflow-x-auto col-span-2">
+      {/* Shipping Address Section */}
+      <div className="bg-white shadow-lg p-5 mb-5 rounded-lg border border-gray-300">
+        <h3 className="text-xl font-semibold mb-6">Shipping Address</h3>
+        <div className='mb-2  border-b pb-2 font-bold text-gray-800'>Full Name : <span className='ml-4 font-medium text-gray-700'>{shippingAddress?.fullName}</span></div>
+        <div className='mb-2  border-b pb-2 font-bold text-gray-800'>Shipping Address : <span className='ml-4 font-medium text-gray-700'>{shippingAddress?.address}</span></div>
+        <div className='mb-2  border-b pb-2 font-bold text-gray-800'>Postal Code : <span className='ml-4 font-medium text-gray-700'> {shippingAddress?.city}, {shippingAddress?.postalCode}</span></div>
+        <div className='mb-2  border-b pb-2 font-bold text-gray-800'>Country : <span className='ml-4 font-medium text-gray-700'>{shippingAddress?.country}</span></div>
+        <Link href="/shipping" className="bg-black text-white  py-2 px-8 mt-3 inline-block rounded-lg">Edit</Link>
+      </div>
 
-            {/* Payment Method Section */}
-            <div className="p-5">
-              <h3 className="mb-2 text-lg">Payment Method</h3>
-              <div>{paymentMethod}</div>
-              <div>
-                <Link className="bg-teal-400 px-6 py-3 inline-block" href="/payment">
-                  Edit
-                </Link>
-              </div>
-            </div>
+      {/* Payment Method Section */}
+      <div className="bg-white shadow-lg p-5 mb-5 rounded-lg border border-gray-300">
+        <h3 className="text-xl font-semibold mb-2">Payment Method</h3>
+        <div>{paymentMethod}</div>
+        <Link href="/payment" className="bg-black text-white  py-2 px-6 mt-3 inline-block rounded-lg">Edit</Link>
+      </div>
 
-            {/* Order Items Section */}
-            <div className="overflow-x-auto p-5">
-              <h3 className="mb-2 text-lg">Order Items</h3>
-              <table className="min-w-full">
-                <thead className="border-b">
-                  <tr>
-                    <th className="px-5 text-left">Item</th>
-                    <th className="p-5 text-right">Quantity</th>
-                    <th className="p-5 text-right">Price</th>
-                    <th className="px-5 text-right">Subtotal</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cartItems.map((item) => (
-                    <tr key={item.id} className="border-b">
-                      <td>
-                        <Link href={`/products/${item.id}`} className="flex items-center">
-                          <Image
-                            src={item.images[0] || '/images/default-product.jpg'}
-                            alt={item.name}
-                            width={50}
-                            height={50}
-                            style={{
-                              maxWidth: '100%',
-                              height: 'auto',
-                            }}
-                            className="p-1"
-                          />
-                          {item.name}
-                        </Link>
-                      </td>
-                      <td className="p-5 text-right">{item.qty}</td>
-                      <td className="p-5 text-right">${item.price}</td>
-                      <td className="p-5 text-right">${item.qty * item.price}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <div>
-                <Link className="bg-teal-400 px-6 py-3 inline-block" href="/cart">
-                  Edit
-                </Link>
-              </div>
-            </div>
-          </div>
+      {/* Order Items Section */}
+      <div className="bg-white shadow-lg p-5 rounded-lg mb-5 border border-gray-300">
+        <h3 className="text-xl font-semibold mb-2">Order Items</h3>
+        <table className="min-w-full border-collapse">
+          <thead className="border-b">
+            <tr>
+              <th className="md:p-4 py-4 px-1  text-left">Item</th>
+              <th className="md:p-4 py-4 px-1  text-right">Quantity</th>
+              <th className="md:p-4 py-4 px-1  text-right">Price</th>
+              <th className="md:p-4 py-4 px-1  text-right">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cartItems.map((item) => (
+              <tr key={item.id} className="border-b">
+                <td className="md:p-4 py-4 px-1  flex items-center">
+                  <Link href={`/products/${item.id}`} className="flex items-center">
+                    <Image
+                      src={item.images[0] || '/images/default-product.jpg'}
+                      alt={item.name}
+                      width={50}
+                      height={50}
+                      className="rounded-sm"
+                    />
+                    <span className="ml-2">{item.name}</span>
+                  </Link>
+                </td>
+                <td className="md:p-4 py-4 px-1 text-right">{item.qty}</td>
+                <td className="md:p-4 py-4 px-1  text-right">${item.price}</td>
+                <td className="md:p-4 py-4 px-1  text-right">${item.qty * item.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <Link href="/cart" className="bg-black text-white  py-2 px-6 mt-3 inline-block rounded-lg">Edit</Link>
+      </div>
+    </div>
 
-          {/* Order Summary Section */}
-          <div className="p-5">
-            <h3 className="mb-2 text-lg">Order Summary</h3>
-            <ul>
-              <li>
-                <div className="mb-2 flex justify-between">
-                  <div>Items</div>
-                  <div>${itemsPrice}</div>
-                </div>
-              </li>
-              <li>
-                <div className="mb-2 flex justify-between">
-                  <div>Tax</div>
-                  <div>${taxPrice}</div>
-                </div>
-              </li>
-              <li>
-                <div className="mb-2 flex justify-between">
-                  <div>Shipping</div>
-                  <div>${shippingPrice}</div>
-                </div>
-              </li>
-              <li>
-                <div className="mb-2 flex justify-between">
-                  <div>Total</div>
-                  <div>${totalPrice}</div>
-                </div>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    alert('Not implemented')
-                  }}
-                  className="bg-black text-white px-6 py-3">
-                  Place Order
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      )}
+    {/* Order Summary Section */}
+    <div className="bg-white md:h-[350px]  shadow-lg p-5 rounded-lg border border-gray-300">
+      <h3 className="text-xl font-semibold mb-2">Order Summary</h3>
+      <ul>
+        <li className="mb-2 flex justify-between border-b pb-2">
+          <span>Items</span>
+          <span>${itemsPrice}</span>
+        </li>
+        <li className="mb-2 flex justify-between border-b pb-2">
+          <span>Tax</span>
+          <span>${taxPrice}</span>
+        </li>
+        <li className="mb-2 flex justify-between border-b pb-2">
+          <span>Shipping</span>
+          <span>${shippingPrice}</span>
+        </li>
+        <li className="mb-2 flex justify-between border-b pb-2 font-semibold text-xl">
+          <span>Total</span>
+          <span>${totalPrice}</span>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              alert('Not implemented')
+            }}
+            className="w-full bg-black text-white py-3 mt-4 rounded-lg">
+            Place Order
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+)}
+     </div>
     </div>
   )
 }

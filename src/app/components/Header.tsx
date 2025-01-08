@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { RiShoppingBag4Fill } from 'react-icons/ri';
 import { FaSquarespace, FaUserCircle } from 'react-icons/fa';
 import { FaTruckFast } from 'react-icons/fa6';
-import Alert from './Alert';
+
 import { useSelector } from 'react-redux';
 import { usePathname } from 'next/navigation';
 import { RootState } from '../../redux/store'; // Assuming you have a 'store.ts' file where RootState is defined
-import { SignedIn, SignedOut, SignInButton, useClerk, UserButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut, useClerk, UserButton } from '@clerk/nextjs';
 
 interface CartItem {
   qty: number;
@@ -38,7 +38,7 @@ function Header() {
     alert('This feature is not implemented yet.');
   };
   const { openSignIn } = useClerk(); // Use Clerk's hook to check if signed in and open sign-in modal
-  const [isOpen, setIsOpen] = useState(false);
+
 
   const handleSignInClick = () => {
     openSignIn();

@@ -4,10 +4,7 @@ import App from './components/App';
 import { StoreProvider } from '@/redux/StoreProvider';
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
+
 } from '@clerk/nextjs';
 
 export const metadata: Metadata = {
