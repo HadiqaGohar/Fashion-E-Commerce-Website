@@ -8,24 +8,6 @@ import { useParams } from 'next/navigation';
 import { data } from '@/utils/data'
 import AddToCart from '@/app/components/AddToCart'
 
-// type Product = {
-//     id: number;
-//     name: string;
-//     price: number;
-//     shirt: string;
-//     fabric: string;
-//     color: string;
-//     weight: string;
-//     rate: number;
-//     instruction: string;
-//     disclaimer: string;
-//     code: string;
-//     images: string[];
-//     countInStock: number
-
-// };
-
-
 const ProductId = () => {  // Accept params as a prop
 
 

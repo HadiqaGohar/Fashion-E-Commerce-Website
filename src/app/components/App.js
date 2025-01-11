@@ -9,6 +9,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { usePathname } from 'next/navigation'
 import TopText from './TopMessage'
+import { Toaster } from 'react-hot-toast'
 
 
 function App({ children }) {
@@ -37,6 +38,15 @@ function App({ children }) {
             </div>
             <CartSidebar />
             <Footer />
+            <Toaster 
+            position='bottom-right'
+            toastOptions={{
+                style: {
+                    background: "#000000",
+                    color: "#ffffff",
+                }
+            }}
+            />
         </div>
     )
 }

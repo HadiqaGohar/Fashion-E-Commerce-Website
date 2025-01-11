@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { addToCart } from '@/redux/slices/cartSlice';
+import toast from 'react-hot-toast';
 
 function AddToCart({
     product,
@@ -20,6 +21,10 @@ function AddToCart({
 
     const addToCartHandler = () => {
         let newQty = qty;
+
+        // beautifull toast message
+        // toast.success(`${product?.name.substring(0, 12)} add successfully`);
+        toast.success(`${product?.name.substring(0)} add successfully`);
 
         // Handle quantity increase per click
         if (increasePerClick) {
