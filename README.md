@@ -1,4 +1,4 @@
-## HG-Fashion 🛍️
+# HG-Fashion 🛍️
 HG-Fashion is a modern e-commerce web application built with Next.js 15, Redux for state management, Clark Auth for user authentication, and styled with Tailwind CSS. This project showcases a fully responsive and dynamic platform designed to deliver a seamless shopping experience for users.
 
 ## Features ✨
@@ -11,13 +11,13 @@ Optimized Performance: Fast page loads with server-side rendering and Next.js op
 
 ## Tech Stack 🛠️
 
-## Next.js 15:
+### Next.js 15:
 A robust React framework for server-side rendering and static site generation.
-# Redux: 
+### Redux: 
 Efficient state management for a predictable app structure.
-## Clark Auth:
+### Clark Auth:
 Secure user authentication with easy-to-implement user sign-up, login, and session management.
-## Tailwind CSS: Utility-first CSS framework for rapid styling and responsive design.
+### Tailwind CSS: Utility-first CSS framework for rapid styling and responsive design.
 Getting Started 🚀
 
 
